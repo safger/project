@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.sdao.GyDmzdMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.GyDmzd" >
+    <id column="Dmlb" property="dmlb" jdbcType="NUMERIC" />
+        <result property="srdm" column="SRDM"  jdbcType="VARCHAR" />
+        <result property="dmmc" column="DMMC"  jdbcType="VARCHAR" />
+        <result property="bzbm" column="BZBM"  jdbcType="VARCHAR" />
+        <result property="xtsb" column="XTSB"  jdbcType="NUMERIC" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         DMLB ,
+         DMSB ,
+         SRDM ,
+         DMMC ,
+         BZBM ,
+         XTSB 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from GY_DMZD
+		      where 
+		        DMLB = #{dmlb,jdbcType=NUMERIC}  
+
+		        DMSB = #{dmsb,jdbcType=NUMERIC}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from GY_DMZD
+    	where 
+		        DMLB = #{dmlb,jdbcType=NUMERIC}  
+
+		        DMSB = #{dmsb,jdbcType=NUMERIC}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.GyDmzd" >
+    
+         insert into GY_DMZD ( 
+         		DMLB , 
+         	          		DMSB , 
+         	          		SRDM , 
+         	          		DMMC , 
+         	          		BZBM , 
+         	          		XTSB  
+         	 )
+   	 	values (
+   	 		#{dmlb,jdbcType=NUMERIC} , 
+   	 	   	 		#{dmsb,jdbcType=NUMERIC} , 
+   	 	   	 		#{srdm,jdbcType=VARCHAR} , 
+   	 	   	 		#{dmmc,jdbcType=VARCHAR} , 
+   	 	   	 		#{bzbm,jdbcType=VARCHAR} , 
+   	 	   	 		#{xtsb,jdbcType=NUMERIC}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.GyDmzd">
+  	  insert into  GY_DMZD
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="dmlb != null" >
+  	 	  DMLB ,  
+  	  	</if>
+  	  	<if test="dmsb != null" >
+  	 	  DMSB ,  
+  	  	</if>
+  	  	<if test="srdm != null" >
+  	 	  SRDM ,  
+  	  	</if>
+  	  	<if test="dmmc != null" >
+  	 	  DMMC ,  
+  	  	</if>
+  	  	<if test="bzbm != null" >
+  	 	  BZBM ,  
+  	  	</if>
+  	  	<if test="xtsb != null" >
+  	 	  XTSB   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="dmlb != null" >
+        	#{dmlb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="dmsb != null" >
+        	#{dmsb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="srdm != null" >
+        	#{srdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="dmmc != null" >
+        	#{dmmc,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="bzbm != null" >
+        	#{bzbm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="xtsb != null" >
+        	#{xtsb,jdbcType=NUMERIC}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.GyDmzd" >
+    update  GY_DMZD
+    <set >
+    	<if test="srdm != null" >
+        	  SRDM=#{srdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="dmmc != null" >
+        	  DMMC=#{dmmc,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="bzbm != null" >
+        	  BZBM=#{bzbm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="xtsb != null" >
+        	  XTSB=#{xtsb,jdbcType=NUMERIC}  
+       </if>
+ 	 </set>
+    where  
+		        DMLB = #{dmlb,jdbcType=NUMERIC}  
+		        DMSB = #{dmsb,jdbcType=NUMERIC}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.GyDmzd" >
+    update GY_DMZD
+    set 
+        	  SRDM=#{srdm,jdbcType=VARCHAR} , 
+        	  DMMC=#{dmmc,jdbcType=VARCHAR} , 
+        	  BZBM=#{bzbm,jdbcType=VARCHAR} , 
+        	  XTSB=#{xtsb,jdbcType=NUMERIC}  
+      where  
+		        DMLB = #{dmlb,jdbcType=NUMERIC}  
+		        DMSB = #{dmsb,jdbcType=NUMERIC}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.GyDmzd" >
+    select 
+    <include refid="Base_Column_List" />
+    from GY_DMZD
+   <where>  
+   	 gy_dmzd.dmsb != 0  
+  	  	<if test="dmlb != null" >
+  	 		    and   DMLB  = #{dmlb}  
+  	  	</if>
+  	  	<if test="dmsb != null" >
+  	 		   and    DMSB  = #{dmsb}  
+  	  	</if>
+  	  	<if test="srdm != null" >
+  	 		   and    SRDM  = #{srdm}  
+  	  	</if>
+  	  	<if test="dmmc != null" >
+  	 		   and    DMMC  = #{dmmc}  
+  	  	</if>
+  	  	<if test="bzbm != null" >
+  	 		   and    BZBM  = #{bzbm}  
+  	  	</if>
+  	  	<if test="xtsb != null" >
+  	 		   and    XTSB  = #{xtsb}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.GyDmzd">  
+    DELETE FROM GY_DMZD  
+      <where>  
+  	  	<if test="dmlb != null" >
+  	 		       DMLB  = #{dmlb}  
+  	  	</if>
+  	  	<if test="dmsb != null" >
+  	 		   and    DMSB  = #{dmsb}  
+  	  	</if>
+  	  	<if test="srdm != null" >
+  	 		   and    SRDM  = #{srdm}  
+  	  	</if>
+  	  	<if test="dmmc != null" >
+  	 		   and    DMMC  = #{dmmc}  
+  	  	</if>
+  	  	<if test="bzbm != null" >
+  	 		   and    BZBM  = #{bzbm}  
+  	  	</if>
+  	  	<if test="xtsb != null" >
+  	 		   and    XTSB  = #{xtsb}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  GY_DMZD WHERE 
+		        DMLB 
+		        DMSB 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.GyDmzd" >
+select count(*) from GY_DMZD
+ <where>  
+  	  	<if test="dmlb != null" >
+  	 		       DMLB  = #{dmlb}  
+  	  	</if>
+  	  	<if test="dmsb != null" >
+  	 		   and    DMSB  = #{dmsb}  
+  	  	</if>
+  	  	<if test="srdm != null" >
+  	 		   and    SRDM  = #{srdm}  
+  	  	</if>
+  	  	<if test="dmmc != null" >
+  	 		   and    DMMC  = #{dmmc}  
+  	  	</if>
+  	  	<if test="bzbm != null" >
+  	 		   and    BZBM  = #{bzbm}  
+  	  	</if>
+  	  	<if test="xtsb != null" >
+  	 		   and    XTSB  = #{xtsb}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from GY_DMZD 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from GY_DMZD where    
+     #{0}   LIKE '' + #{0} + '%'     
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.GyDmzd" >
+    select 
+    <include refid="Base_Column_List" />
+    from GY_DMZD
+      <where>  
+		 
+  	  	</where>
+	</select>
+	
+</mapper>

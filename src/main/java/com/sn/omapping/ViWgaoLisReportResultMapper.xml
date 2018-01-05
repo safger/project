@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.odao.ViWgaoLisReportResultMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.ViWgaoLisReportResult" >
+        <result property="medunitno" column="MEDUNITNO"  jdbcType="CHAR" />
+        <result property="sampleno" column="SAMPLENO"  jdbcType="VARCHAR" />
+        <result property="itemcode" column="ITEMCODE"  jdbcType="VARCHAR" />
+        <result property="itemname" column="ITEMNAME"  jdbcType="VARCHAR" />
+        <result property="testresult" column="TESTRESULT"  jdbcType="VARCHAR" />
+        <result property="highlowflag" column="HIGHLOWFLAG"  jdbcType="VARCHAR" />
+        <result property="itemunit" column="ITEMUNIT"  jdbcType="VARCHAR" />
+        <result property="normalrange" column="NORMALRANGE"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         MEDUNITNO ,
+         SAMPLENO ,
+         ITEMCODE ,
+         ITEMNAME ,
+         TESTRESULT ,
+         HIGHLOWFLAG ,
+         ITEMUNIT ,
+         NORMALRANGE 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from VI_WGAO_LIS_REPORT_RESULT
+		      where   </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from VI_WGAO_LIS_REPORT_RESULT
+    	where   </delete>
+  <insert id="insert" parameterType="com.sn.entity.ViWgaoLisReportResult" >
+    
+         insert into VI_WGAO_LIS_REPORT_RESULT ( 
+         		MEDUNITNO , 
+         	          		SAMPLENO , 
+         	          		ITEMCODE , 
+         	          		ITEMNAME , 
+         	          		TESTRESULT , 
+         	          		HIGHLOWFLAG , 
+         	          		ITEMUNIT , 
+         	          		NORMALRANGE  
+         	 )
+   	 	values (
+   	 		#{medunitno,jdbcType=CHAR} , 
+   	 	   	 		#{sampleno,jdbcType=VARCHAR} , 
+   	 	   	 		#{itemcode,jdbcType=VARCHAR} , 
+   	 	   	 		#{itemname,jdbcType=VARCHAR} , 
+   	 	   	 		#{testresult,jdbcType=VARCHAR} , 
+   	 	   	 		#{highlowflag,jdbcType=VARCHAR} , 
+   	 	   	 		#{itemunit,jdbcType=VARCHAR} , 
+   	 	   	 		#{normalrange,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.ViWgaoLisReportResult">
+  	  insert into  VI_WGAO_LIS_REPORT_RESULT
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="medunitno != null" >
+  	 	  MEDUNITNO ,  
+  	  	</if>
+  	  	<if test="sampleno != null" >
+  	 	  SAMPLENO ,  
+  	  	</if>
+  	  	<if test="itemcode != null" >
+  	 	  ITEMCODE ,  
+  	  	</if>
+  	  	<if test="itemname != null" >
+  	 	  ITEMNAME ,  
+  	  	</if>
+  	  	<if test="testresult != null" >
+  	 	  TESTRESULT ,  
+  	  	</if>
+  	  	<if test="highlowflag != null" >
+  	 	  HIGHLOWFLAG ,  
+  	  	</if>
+  	  	<if test="itemunit != null" >
+  	 	  ITEMUNIT ,  
+  	  	</if>
+  	  	<if test="normalrange != null" >
+  	 	  NORMALRANGE   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="medunitno != null" >
+        	#{medunitno,jdbcType=CHAR} , 
+       </if>
+    	<if test="sampleno != null" >
+        	#{sampleno,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="itemcode != null" >
+        	#{itemcode,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="itemname != null" >
+        	#{itemname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="testresult != null" >
+        	#{testresult,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="highlowflag != null" >
+        	#{highlowflag,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="itemunit != null" >
+        	#{itemunit,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="normalrange != null" >
+        	#{normalrange,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.ViWgaoLisReportResult" >
+    update  VI_WGAO_LIS_REPORT_RESULT
+    <set >
+    	<if test="medunitno != null" >
+        	  MEDUNITNO=#{medunitno,jdbcType=CHAR} , 
+       </if>
+    	<if test="sampleno != null" >
+        	  SAMPLENO=#{sampleno,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="itemcode != null" >
+        	  ITEMCODE=#{itemcode,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="itemname != null" >
+        	  ITEMNAME=#{itemname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="testresult != null" >
+        	  TESTRESULT=#{testresult,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="highlowflag != null" >
+        	  HIGHLOWFLAG=#{highlowflag,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="itemunit != null" >
+        	  ITEMUNIT=#{itemunit,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="normalrange != null" >
+        	  NORMALRANGE=#{normalrange,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.ViWgaoLisReportResult" >
+    update VI_WGAO_LIS_REPORT_RESULT
+    set 
+        	  MEDUNITNO=#{medunitno,jdbcType=CHAR} , 
+        	  SAMPLENO=#{sampleno,jdbcType=VARCHAR} , 
+        	  ITEMCODE=#{itemcode,jdbcType=VARCHAR} , 
+        	  ITEMNAME=#{itemname,jdbcType=VARCHAR} , 
+        	  TESTRESULT=#{testresult,jdbcType=VARCHAR} , 
+        	  HIGHLOWFLAG=#{highlowflag,jdbcType=VARCHAR} , 
+        	  ITEMUNIT=#{itemunit,jdbcType=VARCHAR} , 
+        	  NORMALRANGE=#{normalrange,jdbcType=VARCHAR}  
+      where  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.ViWgaoLisReportResult" >
+    select 
+    <include refid="Base_Column_List" />
+    from VI_WGAO_LIS_REPORT_RESULT
+   <where>  
+  	  	<if test="medunitno != null" >
+  	 		       MEDUNITNO  = #{medunitno}  
+  	  	</if>
+  	  	<if test="sampleno != null" >
+  	 		   and    SAMPLENO  = #{sampleno}  
+  	  	</if>
+  	  	<if test="itemcode != null" >
+  	 		   and    ITEMCODE  = #{itemcode}  
+  	  	</if>
+  	  	<if test="itemname != null" >
+  	 		   and    ITEMNAME  = #{itemname}  
+  	  	</if>
+  	  	<if test="testresult != null" >
+  	 		   and    TESTRESULT  = #{testresult}  
+  	  	</if>
+  	  	<if test="highlowflag != null" >
+  	 		   and    HIGHLOWFLAG  = #{highlowflag}  
+  	  	</if>
+  	  	<if test="itemunit != null" >
+  	 		   and    ITEMUNIT  = #{itemunit}  
+  	  	</if>
+  	  	<if test="normalrange != null" >
+  	 		   and    NORMALRANGE  = #{normalrange}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.ViWgaoLisReportResult">  
+    DELETE FROM VI_WGAO_LIS_REPORT_RESULT  
+      <where>  
+  	  	<if test="medunitno != null" >
+  	 		       MEDUNITNO  = #{medunitno}  
+  	  	</if>
+  	  	<if test="sampleno != null" >
+  	 		   and    SAMPLENO  = #{sampleno}  
+  	  	</if>
+  	  	<if test="itemcode != null" >
+  	 		   and    ITEMCODE  = #{itemcode}  
+  	  	</if>
+  	  	<if test="itemname != null" >
+  	 		   and    ITEMNAME  = #{itemname}  
+  	  	</if>
+  	  	<if test="testresult != null" >
+  	 		   and    TESTRESULT  = #{testresult}  
+  	  	</if>
+  	  	<if test="highlowflag != null" >
+  	 		   and    HIGHLOWFLAG  = #{highlowflag}  
+  	  	</if>
+  	  	<if test="itemunit != null" >
+  	 		   and    ITEMUNIT  = #{itemunit}  
+  	  	</if>
+  	  	<if test="normalrange != null" >
+  	 		   and    NORMALRANGE  = #{normalrange}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  VI_WGAO_LIS_REPORT_RESULT WHERE 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.ViWgaoLisReportResult" >
+select count(*) from VI_WGAO_LIS_REPORT_RESULT
+ <where>  
+  	  	<if test="medunitno != null" >
+  	 		       MEDUNITNO  = #{medunitno}  
+  	  	</if>
+  	  	<if test="sampleno != null" >
+  	 		   and    SAMPLENO  = #{sampleno}  
+  	  	</if>
+  	  	<if test="itemcode != null" >
+  	 		   and    ITEMCODE  = #{itemcode}  
+  	  	</if>
+  	  	<if test="itemname != null" >
+  	 		   and    ITEMNAME  = #{itemname}  
+  	  	</if>
+  	  	<if test="testresult != null" >
+  	 		   and    TESTRESULT  = #{testresult}  
+  	  	</if>
+  	  	<if test="highlowflag != null" >
+  	 		   and    HIGHLOWFLAG  = #{highlowflag}  
+  	  	</if>
+  	  	<if test="itemunit != null" >
+  	 		   and    ITEMUNIT  = #{itemunit}  
+  	  	</if>
+  	  	<if test="normalrange != null" >
+  	 		   and    NORMALRANGE  = #{normalrange}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"   parameterType="com.sn.entity.ViWgaoLisReportResult" >
+select * from VI_WGAO_LIS_REPORT_RESULT order by #{order}
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from VI_WGAO_LIS_REPORT_RESULT where  
+     #{0}   LIKE CONCAT('%','#{1}','%' ) 
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.ViWgaoLisReportResult" >
+    select 
+    <include refid="Base_Column_List" />
+    from VI_WGAO_LIS_REPORT_RESULT
+      <where>  
+		 
+  	  	</where>
+	</select>
+	
+</mapper>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.GloginerrorMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Gloginerror" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="name" column="NAME"  jdbcType="VARCHAR" />
+        <result property="idcard" column="IDcard"  jdbcType="VARCHAR" />
+        <result property="createdate" column="createdate"  jdbcType="TIMESTAMP" />
+        <result property="content" column="content"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         NAME ,
+         IDcard ,
+         createdate ,
+         content 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from bu_gloginerror
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bu_gloginerror
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Gloginerror" >
+    
+         insert into bu_gloginerror ( 
+         		FUID , 
+         	          		NAME , 
+         	          		IDcard , 
+         	          		createdate , 
+         	          		content  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{name,jdbcType=VARCHAR} , 
+   	 	   	 		#{idcard,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{content,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Gloginerror">
+  	  insert into  bu_gloginerror
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 	  NAME ,  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 	  IDcard ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  createdate ,  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 	  content   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="name != null" >
+        	#{name,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="idcard != null" >
+        	#{idcard,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="content != null" >
+        	#{content,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Gloginerror" >
+    update  bu_gloginerror
+    <set >
+    	<if test="name != null" >
+        	  NAME=#{name,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="idcard != null" >
+        	  IDcard=#{idcard,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  createdate=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="content != null" >
+        	  content=#{content,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Gloginerror" >
+    update bu_gloginerror
+    set 
+        	  NAME=#{name,jdbcType=VARCHAR} , 
+        	  IDcard=#{idcard,jdbcType=VARCHAR} , 
+        	  createdate=#{createdate,jdbcType=TIMESTAMP} , 
+        	  content=#{content,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Gloginerror" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_gloginerror
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 		   and    IDcard  = #{idcard}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    content  = #{content}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Gloginerror">  
+    DELETE FROM bu_gloginerror  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 		   and    IDcard  = #{idcard}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    content  = #{content}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  bu_gloginerror WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Gloginerror" >
+select count(*) from bu_gloginerror
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 		   and    IDcard  = #{idcard}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    content  = #{content}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from bu_gloginerror 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap" parameterType="com.sn.entity.Gloginerror"  >
+		 select 
+    <include refid="Base_Column_List" />
+    from bu_gloginerror 
+      <where>  
+		 LIKE CONCAT('%','#{1}','%' ) 
+  	  	</where>  
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Gloginerror" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_gloginerror
+      <where>   
+		 <if test="name != null" >
+  	 		        NAME like CONCAT('%','${name}','%' )  or IDcard like CONCAT('%','${name}','%' )
+  	  	</if>
+  	  	</where>
+	</select>
+	
+</mapper>

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.GuserMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Guser" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="name" column="NAME"  jdbcType="VARCHAR" />
+        <result property="phone" column="phone"  jdbcType="VARCHAR" />
+        <result property="idcard" column="IDcard"  jdbcType="VARCHAR" />
+        <result property="area" column="area"  jdbcType="VARCHAR" />
+        <result property="createdate" column="createdate"  jdbcType="TIMESTAMP" />
+        <result property="address" column="address"  jdbcType="VARCHAR" />
+        <result property="sex" column="sex"  jdbcType="INTEGER" />
+        <result property="birthday" column="birthday"  jdbcType="TIMESTAMP" />
+        <result property="weixinid" column="weixinid"  jdbcType="VARCHAR" />
+        <result property="isBind" column="isBind"  jdbcType="INTEGER" />
+        <result property="parentid" column="parentid"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         NAME ,
+         phone ,
+         IDcard ,
+         area ,
+         createdate ,
+         address ,
+         sex ,
+         birthday ,
+         weixinid ,
+         isBind ,
+         parentid 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from bu_guser
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bu_guser
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Guser" >
+    
+         insert into bu_guser ( 
+         		FUID , 
+         	          		NAME , 
+         	          		phone , 
+         	          		IDcard , 
+         	          		area , 
+         	          		createdate , 
+         	          		address , 
+         	          		sex , 
+         	          		birthday , 
+         	          		weixinid , 
+         	          		isBind , 
+         	          		parentid  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{name,jdbcType=VARCHAR} , 
+   	 	   	 		#{phone,jdbcType=VARCHAR} , 
+   	 	   	 		#{idcard,jdbcType=VARCHAR} , 
+   	 	   	 		#{area,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{address,jdbcType=VARCHAR} , 
+   	 	   	 		#{sex,jdbcType=INTEGER} , 
+   	 	   	 		#{birthday,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{weixinid,jdbcType=VARCHAR} , 
+   	 	   	 		#{isBind,jdbcType=INTEGER} , 
+   	 	   	 		#{parentid,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Guser">
+  	  insert into  bu_guser
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 	  NAME ,  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 	  phone ,  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 	  IDcard ,  
+  	  	</if>
+  	  	<if test="area != null" >
+  	 	  area ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  createdate ,  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 	  address ,  
+  	  	</if>
+  	  	<if test="sex != null" >
+  	 	  sex ,  
+  	  	</if>
+  	  	<if test="birthday != null" >
+  	 	  birthday ,  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 	  weixinid ,  
+  	  	</if>
+  	  	<if test="isBind != null" >
+  	 	  isBind ,  
+  	  	</if>
+  	  	<if test="parentid != null" >
+  	 	  parentid   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="name != null" >
+        	#{name,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="phone != null" >
+        	#{phone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="idcard != null" >
+        	#{idcard,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="area != null" >
+        	#{area,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="address != null" >
+        	#{address,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sex != null" >
+        	#{sex,jdbcType=INTEGER} , 
+       </if>
+    	<if test="birthday != null" >
+        	#{birthday,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="weixinid != null" >
+        	#{weixinid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="isBind != null" >
+        	#{isBind,jdbcType=INTEGER} , 
+       </if>
+    	<if test="parentid != null" >
+        	#{parentid,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Guser" >
+    update  bu_guser
+    <set >
+    	<if test="name != null" >
+        	  NAME=#{name,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="phone != null" >
+        	  phone=#{phone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="idcard != null" >
+        	  IDcard=#{idcard,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="area != null" >
+        	  area=#{area,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  createdate=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="address != null" >
+        	  address=#{address,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sex != null" >
+        	  sex=#{sex,jdbcType=INTEGER} , 
+       </if>
+    	<if test="birthday != null" >
+        	  birthday=#{birthday,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="weixinid != null" >
+        	  weixinid=#{weixinid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="isBind != null" >
+        	  isBind=#{isBind,jdbcType=INTEGER} , 
+       </if>
+    	<if test="parentid != null" >
+        	  parentid=#{parentid,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Guser" >
+    update bu_guser
+    set 
+        	  NAME=#{name,jdbcType=VARCHAR} , 
+        	  phone=#{phone,jdbcType=VARCHAR} , 
+        	  IDcard=#{idcard,jdbcType=VARCHAR} , 
+        	  area=#{area,jdbcType=VARCHAR} , 
+        	  createdate=#{createdate,jdbcType=TIMESTAMP} , 
+        	  address=#{address,jdbcType=VARCHAR} , 
+        	  sex=#{sex,jdbcType=INTEGER} , 
+        	  birthday=#{birthday,jdbcType=TIMESTAMP} , 
+        	  weixinid=#{weixinid,jdbcType=VARCHAR} , 
+        	  isBind=#{isBind,jdbcType=INTEGER} , 
+        	  parentid=#{parentid,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Guser" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_guser
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    phone  = #{phone}  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 		   and    IDcard  = #{idcard}  
+  	  	</if>
+  	  	<if test="area != null" >
+  	 		   and    area  = #{area}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 		   and    address  = #{address}  
+  	  	</if>
+  	  	<if test="sex != null" >
+  	 		   and    sex  = #{sex}  
+  	  	</if>
+  	  	<if test="birthday != null" >
+  	 		   and    birthday  = #{birthday}  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 		   and    weixinid  = #{weixinid}  
+  	  	</if>
+  	  	<if test="isBind != null" >
+  	 		   and    isBind  = #{isBind}  
+  	  	</if>
+  	  	<if test="parentid != null" >
+  	 		   and    parentid  = #{parentid}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Guser">  
+    DELETE FROM bu_guser  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    phone  = #{phone}  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 		   and    IDcard  = #{idcard}  
+  	  	</if>
+  	  	<if test="area != null" >
+  	 		   and    area  = #{area}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 		   and    address  = #{address}  
+  	  	</if>
+  	  	<if test="sex != null" >
+  	 		   and    sex  = #{sex}  
+  	  	</if>
+  	  	<if test="birthday != null" >
+  	 		   and    birthday  = #{birthday}  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 		   and    weixinid  = #{weixinid}  
+  	  	</if>
+  	  	<if test="isBind != null" >
+  	 		   and    isBind  = #{isBind}  
+  	  	</if>
+  	  	<if test="parentid != null" >
+  	 		   and    parentid  = #{parentid}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  bu_guser WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Guser" >
+select count(*) from bu_guser
+ <where>  
+ 	parentid is null
+  	  	<if test="fuid != null" >
+  	 		 and      FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    phone  = #{phone}  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 		   and    IDcard  = #{idcard}  
+  	  	</if>
+  	  	<if test="area != null" >
+  	 		   and    area  = #{area}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 		   and    address  = #{address}  
+  	  	</if>
+  	  	<if test="sex != null" >
+  	 		   and    sex  = #{sex}  
+  	  	</if>
+  	  	<if test="birthday != null" >
+  	 		   and    birthday  = #{birthday}  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 		   and    weixinid  = #{weixinid}  
+  	  	</if>
+  	  	<if test="isBind != null" >
+  	 		   and    isBind  = #{isBind}  
+  	  	</if>
+  	  	<if test="parentid != null" >
+  	 		   and    parentid  = #{parentid}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from bu_guser 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap" parameterType="com.sn.entity.Guser"     >
+		 select 
+    <include refid="Base_Column_List" />
+   	 from bu_guser
+      <where>  
+		 	<if test="fuid != null" >
+  	 		      ( FUID  = #{fuid} or parentid =#{fuid}   )
+  	  		</if>
+  	  	</where>
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Guser" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_guser 
+      <where>  
+		 <if test="idcard != null" >
+  	 		      (  IDcard like  CONCAT('','${idcard}','%' )   or name like  CONCAT('%','${idcard}','%' )  or phone like  CONCAT('%','${idcard}','%' )  )
+  	  	</if>
+  	  	</where>
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.SmsrecordMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Smsrecord" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="phone" column="phone"  jdbcType="VARCHAR" />
+        <result property="createdate" column="createdate"  jdbcType="TIMESTAMP" />
+        <result property="weixinid" column="weixinid"  jdbcType="VARCHAR" />
+        <result property="ip" column="ip"  jdbcType="VARCHAR" />
+        <result property="smscode" column="smscode"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         phone ,
+         createdate ,
+         weixinid ,
+         ip ,
+         smscode 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from bu_smsrecord
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bu_smsrecord
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Smsrecord" >
+    
+         insert into bu_smsrecord ( 
+         		FUID , 
+         	          		phone , 
+         	          		createdate , 
+         	          		weixinid , 
+         	          		ip , 
+         	          		smscode  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{phone,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{weixinid,jdbcType=VARCHAR} , 
+   	 	   	 		#{ip,jdbcType=VARCHAR} , 
+   	 	   	 		#{smscode,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Smsrecord">
+  	  insert into  bu_smsrecord
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 	  phone ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  createdate ,  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 	  weixinid ,  
+  	  	</if>
+  	  	<if test="ip != null" >
+  	 	  ip ,  
+  	  	</if>
+  	  	<if test="smscode != null" >
+  	 	  smscode   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="phone != null" >
+        	#{phone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="weixinid != null" >
+        	#{weixinid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ip != null" >
+        	#{ip,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="smscode != null" >
+        	#{smscode,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Smsrecord" >
+    update  bu_smsrecord
+    <set >
+    	<if test="phone != null" >
+        	  phone=#{phone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  createdate=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="weixinid != null" >
+        	  weixinid=#{weixinid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ip != null" >
+        	  ip=#{ip,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="smscode != null" >
+        	  smscode=#{smscode,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Smsrecord" >
+    update bu_smsrecord
+    set 
+        	  phone=#{phone,jdbcType=VARCHAR} , 
+        	  createdate=#{createdate,jdbcType=TIMESTAMP} , 
+        	  weixinid=#{weixinid,jdbcType=VARCHAR} , 
+        	  ip=#{ip,jdbcType=VARCHAR} , 
+        	  smscode=#{smscode,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Smsrecord" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_smsrecord
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    phone  = #{phone}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 		   and    weixinid  = #{weixinid}  
+  	  	</if>
+  	  	<if test="ip != null" >
+  	 		   and    ip  = #{ip}  
+  	  	</if>
+  	  	<if test="smscode != null" >
+  	 		   and    smscode  = #{smscode}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Smsrecord">  
+    DELETE FROM bu_smsrecord  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    phone  = #{phone}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 		   and    weixinid  = #{weixinid}  
+  	  	</if>
+  	  	<if test="ip != null" >
+  	 		   and    ip  = #{ip}  
+  	  	</if>
+  	  	<if test="smscode != null" >
+  	 		   and    smscode  = #{smscode}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  bu_smsrecord WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Smsrecord" >
+select count(*) from bu_smsrecord
+ <where>  
+ 		createdate>=CURRENT_TIMESTAMP - INTERVAL 10 MINUTE
+  	  	<if test="fuid != null" >
+  	 		  and    FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    phone  = #{phone}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 		   and    weixinid  = #{weixinid}  
+  	  	</if>
+  	  	<if test="ip != null" >
+  	 		   and    ip  = #{ip}  
+  	  	</if>
+  	  	<if test="smscode != null" >
+  	 		   and    smscode  = #{smscode}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from bu_smsrecord 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from bu_smsrecord where  
+     #{0}   LIKE CONCAT('%','#{1}','%' ) 
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Smsrecord" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_smsrecord
+      <where>  
+		 
+  	  	</where>
+	</select>
+	
+</mapper>

@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.sdao.MsYydaMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.MsYyda" >
+    <id column="Yyid" property="yyid" jdbcType="NUMERIC" />
+        <result property="brxm" column="BRXM"  jdbcType="VARCHAR" />
+        <result property="sfzh" column="SFZH"  jdbcType="VARCHAR" />
+        <result property="brxb" column="BRXB"  jdbcType="NUMERIC" />
+        <result property="csny" column="CSNY"  jdbcType="TIMESTAMP" />
+        <result property="dwmc" column="DWMC"  jdbcType="VARCHAR" />
+        <result property="hkdz" column="HKDZ"  jdbcType="VARCHAR" />
+        <result property="jtdh" column="JTDH"  jdbcType="VARCHAR" />
+        <result property="ckhm" column="CKHM"  jdbcType="VARCHAR" />
+        <result property="yysj" column="YYSJ"  jdbcType="TIMESTAMP" />
+        <result property="ghbz" column="GHBZ"  jdbcType="NUMERIC" />
+        <result property="djgh" column="DJGH"  jdbcType="VARCHAR" />
+        <result property="djsj" column="DJSJ"  jdbcType="TIMESTAMP" />
+        <result property="ghgh" column="GHGH"  jdbcType="VARCHAR" />
+        <result property="ghsj" column="GHSJ"  jdbcType="TIMESTAMP" />
+        <result property="ysdm" column="YSDM"  jdbcType="VARCHAR" />
+        <result property="zblb" column="ZBLB"  jdbcType="NUMERIC" />
+        <result property="gzrq" column="GZRQ"  jdbcType="TIMESTAMP" />
+        <result property="ksdm" column="KSDM"  jdbcType="VARCHAR" />
+        <result property="sbxh" column="SBXH"  jdbcType="NUMERIC" />
+        <result property="yylx" column="YYLX"  jdbcType="NUMERIC" />
+        <result property="jzlb" column="JZLB"  jdbcType="NUMERIC" />
+        <result property="yyxh" column="YYXH"  jdbcType="NUMERIC" />
+        <result property="fdsj" column="FDSJ"  jdbcType="VARCHAR" />
+        <result property="brid" column="BRID"  jdbcType="NUMERIC" />
+        <result property="bwdyy" column="BWDYY"  jdbcType="VARCHAR" />
+        <result property="kqkyy" column="KQKYY"  jdbcType="VARCHAR" />
+        <result property="cqjcyy" column="CQJCYY"  jdbcType="VARCHAR" />
+        <result property="shfcyy" column="SHFCYY"  jdbcType="VARCHAR" />
+        <result property="zklsh" column="ZKLSH"  jdbcType="VARCHAR" />
+        <result property="jzxh" column="JZXH"  jdbcType="NUMERIC" />
+        <result property="qxgh" column="QXGH"  jdbcType="VARCHAR" />
+        <result property="qxsj" column="QXSJ"  jdbcType="TIMESTAMP" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         YYID ,
+         BRXM ,
+         SFZH ,
+         BRXB ,
+         CSNY ,
+         DWMC ,
+         HKDZ ,
+         JTDH ,
+         CKHM ,
+         YYSJ ,
+         GHBZ ,
+         DJGH ,
+         DJSJ ,
+         GHGH ,
+         GHSJ ,
+         YSDM ,
+         ZBLB ,
+         GZRQ ,
+         KSDM ,
+         SBXH ,
+         YYLX ,
+         JZLB ,
+         YYXH ,
+         FDSJ ,
+         BRID ,
+         BWDYY ,
+         KQKYY ,
+         CQJCYY ,
+         SHFCYY ,
+         ZKLSH ,
+         JZXH ,
+         QXGH ,
+         QXSJ 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from MS_YYDA
+		      where 
+		        YYID = #{yyid,jdbcType=NUMERIC}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from MS_YYDA
+    	where 
+		        YYID = #{yyid,jdbcType=NUMERIC}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.MsYyda" >
+    
+         insert into MS_YYDA ( 
+         		YYID , 
+         	          		BRXM , 
+         	          		SFZH , 
+         	          		BRXB , 
+         	          		CSNY , 
+         	          		DWMC , 
+         	          		HKDZ , 
+         	          		JTDH , 
+         	          		CKHM , 
+         	          		YYSJ , 
+         	          		GHBZ , 
+         	          		DJGH , 
+         	          		DJSJ , 
+         	          		GHGH , 
+         	          		GHSJ , 
+         	          		YSDM , 
+         	          		ZBLB , 
+         	          		GZRQ , 
+         	          		KSDM , 
+         	          		SBXH , 
+         	          		YYLX , 
+         	          		JZLB , 
+         	          		YYXH , 
+         	          		FDSJ , 
+         	          		BRID , 
+         	          		BWDYY , 
+         	          		KQKYY , 
+         	          		CQJCYY , 
+         	          		SHFCYY , 
+         	          		ZKLSH , 
+         	          		JZXH , 
+         	          		QXGH , 
+         	          		QXSJ  
+         	 )
+   	 	values (
+   	 		#{yyid,jdbcType=NUMERIC} , 
+   	 	   	 		#{brxm,jdbcType=VARCHAR} , 
+   	 	   	 		#{sfzh,jdbcType=VARCHAR} , 
+   	 	   	 		#{brxb,jdbcType=NUMERIC} , 
+   	 	   	 		#{csny,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{dwmc,jdbcType=VARCHAR} , 
+   	 	   	 		#{hkdz,jdbcType=VARCHAR} , 
+   	 	   	 		#{jtdh,jdbcType=VARCHAR} , 
+   	 	   	 		#{ckhm,jdbcType=VARCHAR} , 
+   	 	   	 		#{yysj,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{ghbz,jdbcType=NUMERIC} , 
+   	 	   	 		#{djgh,jdbcType=VARCHAR} , 
+   	 	   	 		#{djsj,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{ghgh,jdbcType=VARCHAR} , 
+   	 	   	 		#{ghsj,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{ysdm,jdbcType=VARCHAR} , 
+   	 	   	 		#{zblb,jdbcType=NUMERIC} , 
+   	 	   	 		#{gzrq,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{ksdm,jdbcType=VARCHAR} , 
+   	 	   	 		#{sbxh,jdbcType=NUMERIC} , 
+   	 	   	 		#{yylx,jdbcType=NUMERIC} , 
+   	 	   	 		#{jzlb,jdbcType=NUMERIC} , 
+   	 	   	 		#{yyxh,jdbcType=NUMERIC} , 
+   	 	   	 		#{fdsj,jdbcType=VARCHAR} , 
+   	 	   	 		#{brid,jdbcType=NUMERIC} , 
+   	 	   	 		#{bwdyy,jdbcType=VARCHAR} , 
+   	 	   	 		#{kqkyy,jdbcType=VARCHAR} , 
+   	 	   	 		#{cqjcyy,jdbcType=VARCHAR} , 
+   	 	   	 		#{shfcyy,jdbcType=VARCHAR} , 
+   	 	   	 		#{zklsh,jdbcType=VARCHAR} , 
+   	 	   	 		#{jzxh,jdbcType=NUMERIC} , 
+   	 	   	 		#{qxgh,jdbcType=VARCHAR} , 
+   	 	   	 		#{qxsj,jdbcType=TIMESTAMP}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.MsYyda">
+  	  insert into  MS_YYDA
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="yyid != null" >
+  	 	  YYID ,  
+  	  	</if>
+  	  	<if test="brxm != null" >
+  	 	  BRXM ,  
+  	  	</if>
+  	  	<if test="sfzh != null" >
+  	 	  SFZH ,  
+  	  	</if>
+  	  	<if test="brxb != null" >
+  	 	  BRXB ,  
+  	  	</if>
+  	  	<if test="csny != null" >
+  	 	  CSNY ,  
+  	  	</if>
+  	  	<if test="dwmc != null" >
+  	 	  DWMC ,  
+  	  	</if>
+  	  	<if test="hkdz != null" >
+  	 	  HKDZ ,  
+  	  	</if>
+  	  	<if test="jtdh != null" >
+  	 	  JTDH ,  
+  	  	</if>
+  	  	<if test="ckhm != null" >
+  	 	  CKHM ,  
+  	  	</if>
+  	  	<if test="yysj != null" >
+  	 	  YYSJ ,  
+  	  	</if>
+  	  	<if test="ghbz != null" >
+  	 	  GHBZ ,  
+  	  	</if>
+  	  	<if test="djgh != null" >
+  	 	  DJGH ,  
+  	  	</if>
+  	  	<if test="djsj != null" >
+  	 	  DJSJ ,  
+  	  	</if>
+  	  	<if test="ghgh != null" >
+  	 	  GHGH ,  
+  	  	</if>
+  	  	<if test="ghsj != null" >
+  	 	  GHSJ ,  
+  	  	</if>
+  	  	<if test="ysdm != null" >
+  	 	  YSDM ,  
+  	  	</if>
+  	  	<if test="zblb != null" >
+  	 	  ZBLB ,  
+  	  	</if>
+  	  	<if test="gzrq != null" >
+  	 	  GZRQ ,  
+  	  	</if>
+  	  	<if test="ksdm != null" >
+  	 	  KSDM ,  
+  	  	</if>
+  	  	<if test="sbxh != null" >
+  	 	  SBXH ,  
+  	  	</if>
+  	  	<if test="yylx != null" >
+  	 	  YYLX ,  
+  	  	</if>
+  	  	<if test="jzlb != null" >
+  	 	  JZLB ,  
+  	  	</if>
+  	  	<if test="yyxh != null" >
+  	 	  YYXH ,  
+  	  	</if>
+  	  	<if test="fdsj != null" >
+  	 	  FDSJ ,  
+  	  	</if>
+  	  	<if test="brid != null" >
+  	 	  BRID ,  
+  	  	</if>
+  	  	<if test="bwdyy != null" >
+  	 	  BWDYY ,  
+  	  	</if>
+  	  	<if test="kqkyy != null" >
+  	 	  KQKYY ,  
+  	  	</if>
+  	  	<if test="cqjcyy != null" >
+  	 	  CQJCYY ,  
+  	  	</if>
+  	  	<if test="shfcyy != null" >
+  	 	  SHFCYY ,  
+  	  	</if>
+  	  	<if test="zklsh != null" >
+  	 	  ZKLSH ,  
+  	  	</if>
+  	  	<if test="jzxh != null" >
+  	 	  JZXH ,  
+  	  	</if>
+  	  	<if test="qxgh != null" >
+  	 	  QXGH ,  
+  	  	</if>
+  	  	<if test="qxsj != null" >
+  	 	  QXSJ   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="yyid != null" >
+        	#{yyid,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="brxm != null" >
+        	#{brxm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sfzh != null" >
+        	#{sfzh,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="brxb != null" >
+        	#{brxb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="csny != null" >
+        	#{csny,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="dwmc != null" >
+        	#{dwmc,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="hkdz != null" >
+        	#{hkdz,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jtdh != null" >
+        	#{jtdh,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ckhm != null" >
+        	#{ckhm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="yysj != null" >
+        	#{yysj,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="ghbz != null" >
+        	#{ghbz,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="djgh != null" >
+        	#{djgh,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="djsj != null" >
+        	#{djsj,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="ghgh != null" >
+        	#{ghgh,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ghsj != null" >
+        	#{ghsj,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="ysdm != null" >
+        	#{ysdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zblb != null" >
+        	#{zblb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="gzrq != null" >
+        	#{gzrq,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="ksdm != null" >
+        	#{ksdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sbxh != null" >
+        	#{sbxh,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="yylx != null" >
+        	#{yylx,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="jzlb != null" >
+        	#{jzlb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="yyxh != null" >
+        	#{yyxh,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="fdsj != null" >
+        	#{fdsj,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="brid != null" >
+        	#{brid,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="bwdyy != null" >
+        	#{bwdyy,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="kqkyy != null" >
+        	#{kqkyy,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="cqjcyy != null" >
+        	#{cqjcyy,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="shfcyy != null" >
+        	#{shfcyy,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zklsh != null" >
+        	#{zklsh,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jzxh != null" >
+        	#{jzxh,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="qxgh != null" >
+        	#{qxgh,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="qxsj != null" >
+        	#{qxsj,jdbcType=TIMESTAMP}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.MsYyda" >
+    update  MS_YYDA
+    <set >
+    	<if test="brxm != null" >
+        	  BRXM=#{brxm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sfzh != null" >
+        	  SFZH=#{sfzh,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="brxb != null" >
+        	  BRXB=#{brxb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="csny != null" >
+        	  CSNY=#{csny,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="dwmc != null" >
+        	  DWMC=#{dwmc,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="hkdz != null" >
+        	  HKDZ=#{hkdz,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jtdh != null" >
+        	  JTDH=#{jtdh,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ckhm != null" >
+        	  CKHM=#{ckhm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="yysj != null" >
+        	  YYSJ=#{yysj,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="ghbz != null" >
+        	  GHBZ=#{ghbz,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="djgh != null" >
+        	  DJGH=#{djgh,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="djsj != null" >
+        	  DJSJ=#{djsj,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="ghgh != null" >
+        	  GHGH=#{ghgh,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ghsj != null" >
+        	  GHSJ=#{ghsj,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="ysdm != null" >
+        	  YSDM=#{ysdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zblb != null" >
+        	  ZBLB=#{zblb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="gzrq != null" >
+        	  GZRQ=#{gzrq,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="ksdm != null" >
+        	  KSDM=#{ksdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sbxh != null" >
+        	  SBXH=#{sbxh,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="yylx != null" >
+        	  YYLX=#{yylx,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="jzlb != null" >
+        	  JZLB=#{jzlb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="yyxh != null" >
+        	  YYXH=#{yyxh,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="fdsj != null" >
+        	  FDSJ=#{fdsj,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="brid != null" >
+        	  BRID=#{brid,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="bwdyy != null" >
+        	  BWDYY=#{bwdyy,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="kqkyy != null" >
+        	  KQKYY=#{kqkyy,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="cqjcyy != null" >
+        	  CQJCYY=#{cqjcyy,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="shfcyy != null" >
+        	  SHFCYY=#{shfcyy,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zklsh != null" >
+        	  ZKLSH=#{zklsh,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jzxh != null" >
+        	  JZXH=#{jzxh,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="qxgh != null" >
+        	  QXGH=#{qxgh,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="qxsj != null" >
+        	  QXSJ=#{qxsj,jdbcType=TIMESTAMP}  
+       </if>
+ 	 </set>
+    where  
+		        YYID = #{yyid,jdbcType=NUMERIC}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.MsYyda" >
+    update MS_YYDA
+    set 
+        	  BRXM=#{brxm,jdbcType=VARCHAR} , 
+        	  SFZH=#{sfzh,jdbcType=VARCHAR} , 
+        	  BRXB=#{brxb,jdbcType=NUMERIC} , 
+        	  CSNY=#{csny,jdbcType=TIMESTAMP} , 
+        	  DWMC=#{dwmc,jdbcType=VARCHAR} , 
+        	  HKDZ=#{hkdz,jdbcType=VARCHAR} , 
+        	  JTDH=#{jtdh,jdbcType=VARCHAR} , 
+        	  CKHM=#{ckhm,jdbcType=VARCHAR} , 
+        	  YYSJ=#{yysj,jdbcType=TIMESTAMP} , 
+        	  GHBZ=#{ghbz,jdbcType=NUMERIC} , 
+        	  DJGH=#{djgh,jdbcType=VARCHAR} , 
+        	  DJSJ=#{djsj,jdbcType=TIMESTAMP} , 
+        	  GHGH=#{ghgh,jdbcType=VARCHAR} , 
+        	  GHSJ=#{ghsj,jdbcType=TIMESTAMP} , 
+        	  YSDM=#{ysdm,jdbcType=VARCHAR} , 
+        	  ZBLB=#{zblb,jdbcType=NUMERIC} , 
+        	  GZRQ=#{gzrq,jdbcType=TIMESTAMP} , 
+        	  KSDM=#{ksdm,jdbcType=VARCHAR} , 
+        	  SBXH=#{sbxh,jdbcType=NUMERIC} , 
+        	  YYLX=#{yylx,jdbcType=NUMERIC} , 
+        	  JZLB=#{jzlb,jdbcType=NUMERIC} , 
+        	  YYXH=#{yyxh,jdbcType=NUMERIC} , 
+        	  FDSJ=#{fdsj,jdbcType=VARCHAR} , 
+        	  BRID=#{brid,jdbcType=NUMERIC} , 
+        	  BWDYY=#{bwdyy,jdbcType=VARCHAR} , 
+        	  KQKYY=#{kqkyy,jdbcType=VARCHAR} , 
+        	  CQJCYY=#{cqjcyy,jdbcType=VARCHAR} , 
+        	  SHFCYY=#{shfcyy,jdbcType=VARCHAR} , 
+        	  ZKLSH=#{zklsh,jdbcType=VARCHAR} , 
+        	  JZXH=#{jzxh,jdbcType=NUMERIC} , 
+        	  QXGH=#{qxgh,jdbcType=VARCHAR} , 
+        	  QXSJ=#{qxsj,jdbcType=TIMESTAMP}  
+      where  
+		        YYID = #{yyid,jdbcType=NUMERIC}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.MsYyda" >
+    select 
+    <include refid="Base_Column_List" />
+    from MS_YYDA
+   <where>  
+  	  	<if test="yyid != null" >
+  	 		       YYID  = #{yyid}  
+  	  	</if>
+  	  	<if test="brxm != null" >
+  	 		   and    BRXM  = #{brxm}  
+  	  	</if>
+  	  	<if test="sfzh != null" >
+  	 		   and    SFZH  = #{sfzh}  
+  	  	</if>
+  	  	<if test="brxb != null" >
+  	 		   and    BRXB  = #{brxb}  
+  	  	</if>
+  	  	<if test="csny != null" >
+  	 		   and    CSNY  = #{csny}  
+  	  	</if>
+  	  	<if test="dwmc != null" >
+  	 		   and    DWMC  = #{dwmc}  
+  	  	</if>
+  	  	<if test="hkdz != null" >
+  	 		   and    HKDZ  = #{hkdz}  
+  	  	</if>
+  	  	<if test="jtdh != null" >
+  	 		   and    JTDH  = #{jtdh}  
+  	  	</if>
+  	  	<if test="ckhm != null" >
+  	 		   and    CKHM  = #{ckhm}  
+  	  	</if>
+  	  	<if test="yysj != null" >
+  	 		   and    YYSJ  = #{yysj}  
+  	  	</if>
+  	  	<if test="ghbz != null" >
+  	 		   and    GHBZ  = #{ghbz}  
+  	  	</if>
+  	  	<if test="djgh != null" >
+  	 		   and    DJGH  = #{djgh}  
+  	  	</if>
+  	  	<if test="djsj != null" >
+  	 		   and    DJSJ  = #{djsj}  
+  	  	</if>
+  	  	<if test="ghgh != null" >
+  	 		   and    GHGH  = #{ghgh}  
+  	  	</if>
+  	  	<if test="ghsj != null" >
+  	 		   and    GHSJ  = #{ghsj}  
+  	  	</if>
+  	  	<if test="ysdm != null" >
+  	 		   and    YSDM  = #{ysdm}  
+  	  	</if>
+  	  	<if test="zblb != null" >
+  	 		   and    ZBLB  = #{zblb}  
+  	  	</if>
+  	  	<if test="gzrq != null" >
+  	 		   and    GZRQ  = #{gzrq}  
+  	  	</if>
+  	  	<if test="ksdm != null" >
+  	 		   and    KSDM  = #{ksdm}  
+  	  	</if>
+  	  	<if test="sbxh != null" >
+  	 		   and    SBXH  = #{sbxh}  
+  	  	</if>
+  	  	<if test="yylx != null" >
+  	 		   and    YYLX  = #{yylx}  
+  	  	</if>
+  	  	<if test="jzlb != null" >
+  	 		   and    JZLB  = #{jzlb}  
+  	  	</if>
+  	  	<if test="yyxh != null" >
+  	 		   and    YYXH  = #{yyxh}  
+  	  	</if>
+  	  	<if test="fdsj != null" >
+  	 		   and    FDSJ  = #{fdsj}  
+  	  	</if>
+  	  	<if test="brid != null" >
+  	 		   and    BRID  = #{brid}  
+  	  	</if>
+  	  	<if test="bwdyy != null" >
+  	 		   and    BWDYY  = #{bwdyy}  
+  	  	</if>
+  	  	<if test="kqkyy != null" >
+  	 		   and    KQKYY  = #{kqkyy}  
+  	  	</if>
+  	  	<if test="cqjcyy != null" >
+  	 		   and    CQJCYY  = #{cqjcyy}  
+  	  	</if>
+  	  	<if test="shfcyy != null" >
+  	 		   and    SHFCYY  = #{shfcyy}  
+  	  	</if>
+  	  	<if test="zklsh != null" >
+  	 		   and    ZKLSH  = #{zklsh}  
+  	  	</if>
+  	  	<if test="jzxh != null" >
+  	 		   and    JZXH  = #{jzxh}  
+  	  	</if>
+  	  	<if test="qxgh != null" >
+  	 		   and    QXGH  = #{qxgh}  
+  	  	</if>
+  	  	<if test="qxsj != null" >
+  	 		   and    QXSJ  = #{qxsj}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.MsYyda">  
+    DELETE FROM MS_YYDA  
+      <where>  
+  	  	<if test="yyid != null" >
+  	 		       YYID  = #{yyid}  
+  	  	</if>
+  	  	<if test="brxm != null" >
+  	 		   and    BRXM  = #{brxm}  
+  	  	</if>
+  	  	<if test="sfzh != null" >
+  	 		   and    SFZH  = #{sfzh}  
+  	  	</if>
+  	  	<if test="brxb != null" >
+  	 		   and    BRXB  = #{brxb}  
+  	  	</if>
+  	  	<if test="csny != null" >
+  	 		   and    CSNY  = #{csny}  
+  	  	</if>
+  	  	<if test="dwmc != null" >
+  	 		   and    DWMC  = #{dwmc}  
+  	  	</if>
+  	  	<if test="hkdz != null" >
+  	 		   and    HKDZ  = #{hkdz}  
+  	  	</if>
+  	  	<if test="jtdh != null" >
+  	 		   and    JTDH  = #{jtdh}  
+  	  	</if>
+  	  	<if test="ckhm != null" >
+  	 		   and    CKHM  = #{ckhm}  
+  	  	</if>
+  	  	<if test="yysj != null" >
+  	 		   and    YYSJ  = #{yysj}  
+  	  	</if>
+  	  	<if test="ghbz != null" >
+  	 		   and    GHBZ  = #{ghbz}  
+  	  	</if>
+  	  	<if test="djgh != null" >
+  	 		   and    DJGH  = #{djgh}  
+  	  	</if>
+  	  	<if test="djsj != null" >
+  	 		   and    DJSJ  = #{djsj}  
+  	  	</if>
+  	  	<if test="ghgh != null" >
+  	 		   and    GHGH  = #{ghgh}  
+  	  	</if>
+  	  	<if test="ghsj != null" >
+  	 		   and    GHSJ  = #{ghsj}  
+  	  	</if>
+  	  	<if test="ysdm != null" >
+  	 		   and    YSDM  = #{ysdm}  
+  	  	</if>
+  	  	<if test="zblb != null" >
+  	 		   and    ZBLB  = #{zblb}  
+  	  	</if>
+  	  	<if test="gzrq != null" >
+  	 		   and    GZRQ  = #{gzrq}  
+  	  	</if>
+  	  	<if test="ksdm != null" >
+  	 		   and    KSDM  = #{ksdm}  
+  	  	</if>
+  	  	<if test="sbxh != null" >
+  	 		   and    SBXH  = #{sbxh}  
+  	  	</if>
+  	  	<if test="yylx != null" >
+  	 		   and    YYLX  = #{yylx}  
+  	  	</if>
+  	  	<if test="jzlb != null" >
+  	 		   and    JZLB  = #{jzlb}  
+  	  	</if>
+  	  	<if test="yyxh != null" >
+  	 		   and    YYXH  = #{yyxh}  
+  	  	</if>
+  	  	<if test="fdsj != null" >
+  	 		   and    FDSJ  = #{fdsj}  
+  	  	</if>
+  	  	<if test="brid != null" >
+  	 		   and    BRID  = #{brid}  
+  	  	</if>
+  	  	<if test="bwdyy != null" >
+  	 		   and    BWDYY  = #{bwdyy}  
+  	  	</if>
+  	  	<if test="kqkyy != null" >
+  	 		   and    KQKYY  = #{kqkyy}  
+  	  	</if>
+  	  	<if test="cqjcyy != null" >
+  	 		   and    CQJCYY  = #{cqjcyy}  
+  	  	</if>
+  	  	<if test="shfcyy != null" >
+  	 		   and    SHFCYY  = #{shfcyy}  
+  	  	</if>
+  	  	<if test="zklsh != null" >
+  	 		   and    ZKLSH  = #{zklsh}  
+  	  	</if>
+  	  	<if test="jzxh != null" >
+  	 		   and    JZXH  = #{jzxh}  
+  	  	</if>
+  	  	<if test="qxgh != null" >
+  	 		   and    QXGH  = #{qxgh}  
+  	  	</if>
+  	  	<if test="qxsj != null" >
+  	 		   and    QXSJ  = #{qxsj}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  MS_YYDA WHERE 
+		        YYID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.MsYyda" >
+select count(*) from MS_YYDA
+ <where>  
+  	  	<if test="yyid != null" >
+  	 		       YYID  = #{yyid}  
+  	  	</if>
+  	  	<if test="brxm != null" >
+  	 		   and    BRXM  = #{brxm}  
+  	  	</if>
+  	  	<if test="sfzh != null" >
+  	 		   and    SFZH  = #{sfzh}  
+  	  	</if>
+  	  	<if test="brxb != null" >
+  	 		   and    BRXB  = #{brxb}  
+  	  	</if>
+  	  	<if test="csny != null" >
+  	 		   and    CSNY  = #{csny}  
+  	  	</if>
+  	  	<if test="dwmc != null" >
+  	 		   and    DWMC  = #{dwmc}  
+  	  	</if>
+  	  	<if test="hkdz != null" >
+  	 		   and    HKDZ  = #{hkdz}  
+  	  	</if>
+  	  	<if test="jtdh != null" >
+  	 		   and    JTDH  = #{jtdh}  
+  	  	</if>
+  	  	<if test="ckhm != null" >
+  	 		   and    CKHM  = #{ckhm}  
+  	  	</if>
+  	  	<if test="yysj != null" >
+  	 		   and    YYSJ  = #{yysj}  
+  	  	</if>
+  	  	<if test="ghbz != null" > 
+  	 		   and   ( GHBZ  = #{ghbz} or GHBZ is null   )
+  	  	</if>
+  	  	<if test="djgh != null" >
+  	 		   and    DJGH  = #{djgh}  
+  	  	</if>
+  	  	<if test="djsj != null" >
+  	 		   and    DJSJ  = #{djsj}  
+  	  	</if>
+  	  	<if test="ghgh != null" >
+  	 		   and    GHGH  = #{ghgh}  
+  	  	</if>
+  	  	<if test="ghsj != null" >
+  	 		   and    GHSJ  = #{ghsj}  
+  	  	</if>
+  	  	<if test="ysdm != null" >
+  	 		   and    YSDM  = #{ysdm}  
+  	  	</if>
+  	  	<if test="zblb != null" >
+  	 		   and    ZBLB  = #{zblb}  
+  	  	</if>
+  	  	<if test="gzrq != null" >
+  	 		   and    GZRQ  = #{gzrq}  
+  	  	</if>
+  	  	<if test="ksdm != null" >
+  	 		   and    KSDM  = #{ksdm}  
+  	  	</if>
+  	  	<if test="sbxh != null" >
+  	 		   and    SBXH  = #{sbxh}  
+  	  	</if>
+  	  	<if test="yylx != null" >
+  	 		   and    YYLX  = #{yylx}  
+  	  	</if>
+  	  	<if test="jzlb != null" >
+  	 		   and    JZLB  = #{jzlb}  
+  	  	</if>
+  	  	<if test="yyxh != null" >
+  	 		   and    YYXH  = #{yyxh}  
+  	  	</if>
+  	  	<if test="fdsj != null" >
+  	 		   and    FDSJ  = #{fdsj}  
+  	  	</if>
+  	  	<if test="brid != null" >
+  	 		   and    BRID  = #{brid}  
+  	  	</if>
+  	  	<if test="bwdyy != null" >
+  	 		   and    BWDYY  = #{bwdyy}  
+  	  	</if>
+  	  	<if test="kqkyy != null" >
+  	 		   and    KQKYY  = #{kqkyy}  
+  	  	</if>
+  	  	<if test="cqjcyy != null" >
+  	 		   and    CQJCYY  = #{cqjcyy}  
+  	  	</if>
+  	  	<if test="shfcyy != null" >
+  	 		   and    SHFCYY  = #{shfcyy}  
+  	  	</if>
+  	  	<if test="zklsh != null" >
+  	 		   and    ZKLSH  = #{zklsh}  
+  	  	</if>
+  	  	<if test="jzxh != null" >
+  	 		   and    JZXH  = #{jzxh}  
+  	  	</if>
+  	  	<if test="qxgh != null" >
+  	 		   and    QXGH  = #{qxgh}  
+  	  	</if>
+  	  	<if test="qxsj != null" >
+  	 		   and    QXSJ  = #{qxsj}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from MS_YYDA 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from MS_YYDA where    
+     #{0}   LIKE '' + #{0} + '%'     
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.MsYyda" >
+    select 
+    <include refid="Base_Column_List" />
+    from MS_YYDA
+      <where>  
+		 
+  	  	</where>
+	</select>
+	
+</mapper>

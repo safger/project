@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.WeixinmessageMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Weixinmessage" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="content" column="CONTENT"  jdbcType="VARCHAR" />
+        <result property="messagetime" column="MESSAGETIME"  jdbcType="INTEGER" />
+        <result property="msgtype" column="MSGTYPE"  jdbcType="VARCHAR" />
+        <result property="msgid" column="MSGID"  jdbcType="VARCHAR" />
+        <result property="fromusername" column="FROMUSERNAME"  jdbcType="VARCHAR" />
+        <result property="picurl" column="PICURL"  jdbcType="VARCHAR" />
+        <result property="mediaid" column="MEDIAID"  jdbcType="VARCHAR" />
+        <result property="locationx" column="LOCATIONX"  jdbcType="VARCHAR" />
+        <result property="locationy" column="LOCATIONY"  jdbcType="VARCHAR" />
+        <result property="scale" column="SCALE"  jdbcType="INTEGER" />
+        <result property="tlabel" column="TLABEL"  jdbcType="VARCHAR" />
+        <result property="createdate" column="CREATEDATE"  jdbcType="TIMESTAMP" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         CONTENT ,
+         MESSAGETIME ,
+         MSGTYPE ,
+         MSGID ,
+         FROMUSERNAME ,
+         PICURL ,
+         MEDIAID ,
+         LOCATIONX ,
+         LOCATIONY ,
+         SCALE ,
+         TLABEL ,
+         CREATEDATE 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from bu_weixinmessage
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bu_weixinmessage
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Weixinmessage" >
+    
+         insert into bu_weixinmessage ( 
+         		FUID , 
+         	          		CONTENT , 
+         	          		MESSAGETIME , 
+         	          		MSGTYPE , 
+         	          		MSGID , 
+         	          		FROMUSERNAME , 
+         	          		PICURL , 
+         	          		MEDIAID , 
+         	          		LOCATIONX , 
+         	          		LOCATIONY , 
+         	          		SCALE , 
+         	          		TLABEL , 
+         	          		CREATEDATE  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{content,jdbcType=VARCHAR} , 
+   	 	   	 		#{messagetime,jdbcType=INTEGER} , 
+   	 	   	 		#{msgtype,jdbcType=VARCHAR} , 
+   	 	   	 		#{msgid,jdbcType=VARCHAR} , 
+   	 	   	 		#{fromusername,jdbcType=VARCHAR} , 
+   	 	   	 		#{picurl,jdbcType=VARCHAR} , 
+   	 	   	 		#{mediaid,jdbcType=VARCHAR} , 
+   	 	   	 		#{locationx,jdbcType=VARCHAR} , 
+   	 	   	 		#{locationy,jdbcType=VARCHAR} , 
+   	 	   	 		#{scale,jdbcType=INTEGER} , 
+   	 	   	 		#{tlabel,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Weixinmessage">
+  	  insert into  bu_weixinmessage
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 	  CONTENT ,  
+  	  	</if>
+  	  	<if test="messagetime != null" >
+  	 	  MESSAGETIME ,  
+  	  	</if>
+  	  	<if test="msgtype != null" >
+  	 	  MSGTYPE ,  
+  	  	</if>
+  	  	<if test="msgid != null" >
+  	 	  MSGID ,  
+  	  	</if>
+  	  	<if test="fromusername != null" >
+  	 	  FROMUSERNAME ,  
+  	  	</if>
+  	  	<if test="picurl != null" >
+  	 	  PICURL ,  
+  	  	</if>
+  	  	<if test="mediaid != null" >
+  	 	  MEDIAID ,  
+  	  	</if>
+  	  	<if test="locationx != null" >
+  	 	  LOCATIONX ,  
+  	  	</if>
+  	  	<if test="locationy != null" >
+  	 	  LOCATIONY ,  
+  	  	</if>
+  	  	<if test="scale != null" >
+  	 	  SCALE ,  
+  	  	</if>
+  	  	<if test="tlabel != null" >
+  	 	  TLABEL ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  CREATEDATE   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="content != null" >
+        	#{content,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="messagetime != null" >
+        	#{messagetime,jdbcType=INTEGER} , 
+       </if>
+    	<if test="msgtype != null" >
+        	#{msgtype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="msgid != null" >
+        	#{msgid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fromusername != null" >
+        	#{fromusername,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="picurl != null" >
+        	#{picurl,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="mediaid != null" >
+        	#{mediaid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="locationx != null" >
+        	#{locationx,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="locationy != null" >
+        	#{locationy,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="scale != null" >
+        	#{scale,jdbcType=INTEGER} , 
+       </if>
+    	<if test="tlabel != null" >
+        	#{tlabel,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Weixinmessage" >
+    update  bu_weixinmessage
+    <set >
+    	<if test="content != null" >
+        	  CONTENT=#{content,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="messagetime != null" >
+        	  MESSAGETIME=#{messagetime,jdbcType=INTEGER} , 
+       </if>
+    	<if test="msgtype != null" >
+        	  MSGTYPE=#{msgtype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="msgid != null" >
+        	  MSGID=#{msgid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="fromusername != null" >
+        	  FROMUSERNAME=#{fromusername,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="picurl != null" >
+        	  PICURL=#{picurl,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="mediaid != null" >
+        	  MEDIAID=#{mediaid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="locationx != null" >
+        	  LOCATIONX=#{locationx,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="locationy != null" >
+        	  LOCATIONY=#{locationy,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="scale != null" >
+        	  SCALE=#{scale,jdbcType=INTEGER} , 
+       </if>
+    	<if test="tlabel != null" >
+        	  TLABEL=#{tlabel,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Weixinmessage" >
+    update bu_weixinmessage
+    set 
+        	  CONTENT=#{content,jdbcType=VARCHAR} , 
+        	  MESSAGETIME=#{messagetime,jdbcType=INTEGER} , 
+        	  MSGTYPE=#{msgtype,jdbcType=VARCHAR} , 
+        	  MSGID=#{msgid,jdbcType=VARCHAR} , 
+        	  FROMUSERNAME=#{fromusername,jdbcType=VARCHAR} , 
+        	  PICURL=#{picurl,jdbcType=VARCHAR} , 
+        	  MEDIAID=#{mediaid,jdbcType=VARCHAR} , 
+        	  LOCATIONX=#{locationx,jdbcType=VARCHAR} , 
+        	  LOCATIONY=#{locationy,jdbcType=VARCHAR} , 
+        	  SCALE=#{scale,jdbcType=INTEGER} , 
+        	  TLABEL=#{tlabel,jdbcType=VARCHAR} , 
+        	  CREATEDATE=#{createdate,jdbcType=TIMESTAMP}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Weixinmessage" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_weixinmessage
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    CONTENT  = #{content}  
+  	  	</if>
+  	  	<if test="messagetime != null" >
+  	 		   and    MESSAGETIME  = #{messagetime}  
+  	  	</if>
+  	  	<if test="msgtype != null" >
+  	 		   and    MSGTYPE  = #{msgtype}  
+  	  	</if>
+  	  	<if test="msgid != null" >
+  	 		   and    MSGID  = #{msgid}  
+  	  	</if>
+  	  	<if test="fromusername != null" >
+  	 		   and    FROMUSERNAME  = #{fromusername}  
+  	  	</if>
+  	  	<if test="picurl != null" >
+  	 		   and    PICURL  = #{picurl}  
+  	  	</if>
+  	  	<if test="mediaid != null" >
+  	 		   and    MEDIAID  = #{mediaid}  
+  	  	</if>
+  	  	<if test="locationx != null" >
+  	 		   and    LOCATIONX  = #{locationx}  
+  	  	</if>
+  	  	<if test="locationy != null" >
+  	 		   and    LOCATIONY  = #{locationy}  
+  	  	</if>
+  	  	<if test="scale != null" >
+  	 		   and    SCALE  = #{scale}  
+  	  	</if>
+  	  	<if test="tlabel != null" >
+  	 		   and    TLABEL  = #{tlabel}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Weixinmessage">  
+    DELETE FROM bu_weixinmessage  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    CONTENT  = #{content}  
+  	  	</if>
+  	  	<if test="messagetime != null" >
+  	 		   and    MESSAGETIME  = #{messagetime}  
+  	  	</if>
+  	  	<if test="msgtype != null" >
+  	 		   and    MSGTYPE  = #{msgtype}  
+  	  	</if>
+  	  	<if test="msgid != null" >
+  	 		   and    MSGID  = #{msgid}  
+  	  	</if>
+  	  	<if test="fromusername != null" >
+  	 		   and    FROMUSERNAME  = #{fromusername}  
+  	  	</if>
+  	  	<if test="picurl != null" >
+  	 		   and    PICURL  = #{picurl}  
+  	  	</if>
+  	  	<if test="mediaid != null" >
+  	 		   and    MEDIAID  = #{mediaid}  
+  	  	</if>
+  	  	<if test="locationx != null" >
+  	 		   and    LOCATIONX  = #{locationx}  
+  	  	</if>
+  	  	<if test="locationy != null" >
+  	 		   and    LOCATIONY  = #{locationy}  
+  	  	</if>
+  	  	<if test="scale != null" >
+  	 		   and    SCALE  = #{scale}  
+  	  	</if>
+  	  	<if test="tlabel != null" >
+  	 		   and    TLABEL  = #{tlabel}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  bu_weixinmessage WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Weixinmessage" >
+select count(*) from bu_weixinmessage
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    CONTENT  = #{content}  
+  	  	</if>
+  	  	<if test="messagetime != null" >
+  	 		   and    MESSAGETIME  = #{messagetime}  
+  	  	</if>
+  	  	<if test="msgtype != null" >
+  	 		   and    MSGTYPE  = #{msgtype}  
+  	  	</if>
+  	  	<if test="msgid != null" >
+  	 		   and    MSGID  = #{msgid}  
+  	  	</if>
+  	  	<if test="fromusername != null" >
+  	 		   and    FROMUSERNAME  = #{fromusername}  
+  	  	</if>
+  	  	<if test="picurl != null" >
+  	 		   and    PICURL  = #{picurl}  
+  	  	</if>
+  	  	<if test="mediaid != null" >
+  	 		   and    MEDIAID  = #{mediaid}  
+  	  	</if>
+  	  	<if test="locationx != null" >
+  	 		   and    LOCATIONX  = #{locationx}  
+  	  	</if>
+  	  	<if test="locationy != null" >
+  	 		   and    LOCATIONY  = #{locationy}  
+  	  	</if>
+  	  	<if test="scale != null" >
+  	 		   and    SCALE  = #{scale}  
+  	  	</if>
+  	  	<if test="tlabel != null" >
+  	 		   and    TLABEL  = #{tlabel}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    CREATEDATE  = #{createdate}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from bu_weixinmessage 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from bu_weixinmessage where  
+     #{0}   LIKE CONCAT('%','#{1}','%' ) 
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Weixinmessage" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_weixinmessage
+      <where>  
+		 
+  	  	</where>
+	</select>
+	
+</mapper>

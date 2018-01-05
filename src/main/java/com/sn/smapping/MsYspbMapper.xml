@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.sdao.MsYspbMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.MsYspb" >
+    <id column="Gzrq" property="gzrq" jdbcType="TIMESTAMP" />
+        <result property="ghxe" column="GHXE"  jdbcType="NUMERIC" />
+        <result property="ygrs" column="YGRS"  jdbcType="NUMERIC" />
+        <result property="yyrs" column="YYRS"  jdbcType="NUMERIC" />
+        <result property="jzxh" column="JZXH"  jdbcType="NUMERIC" />
+        <result property="yyxe" column="YYXE"  jdbcType="NUMERIC" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         GZRQ ,
+         KSDM ,
+         YSDM ,
+         ZBLB ,
+         GHXE ,
+         YGRS ,
+         YYRS ,
+         JZXH ,
+         YYXE 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from MS_YSPB
+		      where 
+		        GZRQ = #{gzrq,jdbcType=TIMESTAMP}  
+
+		        KSDM = #{ksdm,jdbcType=VARCHAR}  
+
+		        YSDM = #{ysdm,jdbcType=VARCHAR}  
+
+		        ZBLB = #{zblb,jdbcType=NUMERIC}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from MS_YSPB
+    	where 
+		        GZRQ = #{gzrq,jdbcType=TIMESTAMP}  
+
+		        KSDM = #{ksdm,jdbcType=VARCHAR}  
+
+		        YSDM = #{ysdm,jdbcType=VARCHAR}  
+
+		        ZBLB = #{zblb,jdbcType=NUMERIC}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.MsYspb" >
+    
+         insert into MS_YSPB ( 
+         		GZRQ , 
+         	          		KSDM , 
+         	          		YSDM , 
+         	          		ZBLB , 
+         	          		GHXE , 
+         	          		YGRS , 
+         	          		YYRS , 
+         	          		JZXH , 
+         	          		YYXE  
+         	 )
+   	 	values (
+   	 		#{gzrq,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{ksdm,jdbcType=VARCHAR} , 
+   	 	   	 		#{ysdm,jdbcType=VARCHAR} , 
+   	 	   	 		#{zblb,jdbcType=NUMERIC} , 
+   	 	   	 		#{ghxe,jdbcType=NUMERIC} , 
+   	 	   	 		#{ygrs,jdbcType=NUMERIC} , 
+   	 	   	 		#{yyrs,jdbcType=NUMERIC} , 
+   	 	   	 		#{jzxh,jdbcType=NUMERIC} , 
+   	 	   	 		#{yyxe,jdbcType=NUMERIC}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.MsYspb">
+  	  insert into  MS_YSPB
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="gzrq != null" >
+  	 	  GZRQ ,  
+  	  	</if>
+  	  	<if test="ksdm != null" >
+  	 	  KSDM ,  
+  	  	</if>
+  	  	<if test="ysdm != null" >
+  	 	  YSDM ,  
+  	  	</if>
+  	  	<if test="zblb != null" >
+  	 	  ZBLB ,  
+  	  	</if>
+  	  	<if test="ghxe != null" >
+  	 	  GHXE ,  
+  	  	</if>
+  	  	<if test="ygrs != null" >
+  	 	  YGRS ,  
+  	  	</if>
+  	  	<if test="yyrs != null" >
+  	 	  YYRS ,  
+  	  	</if>
+  	  	<if test="jzxh != null" >
+  	 	  JZXH ,  
+  	  	</if>
+  	  	<if test="yyxe != null" >
+  	 	  YYXE   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="gzrq != null" >
+        	#{gzrq,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="ksdm != null" >
+        	#{ksdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ysdm != null" >
+        	#{ysdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="zblb != null" >
+        	#{zblb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="ghxe != null" >
+        	#{ghxe,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="ygrs != null" >
+        	#{ygrs,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="yyrs != null" >
+        	#{yyrs,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="jzxh != null" >
+        	#{jzxh,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="yyxe != null" >
+        	#{yyxe,jdbcType=NUMERIC}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.MsYspb" >
+    update  MS_YSPB
+    <set >
+    	<if test="ghxe != null" >
+        	  GHXE=#{ghxe,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="ygrs != null" >
+        	  YGRS=#{ygrs,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="yyrs != null" >
+        	  YYRS=#{yyrs,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="jzxh != null" >
+        	  JZXH=#{jzxh,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="yyxe != null" >
+        	  YYXE=#{yyxe,jdbcType=NUMERIC}  
+       </if>
+ 	 </set>
+    where  
+		        GZRQ = #{gzrq,jdbcType=TIMESTAMP}  and
+		        KSDM = #{ksdm,jdbcType=VARCHAR}  and
+		        YSDM = #{ysdm,jdbcType=VARCHAR}   and 
+		        ZBLB = #{zblb,jdbcType=NUMERIC}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.MsYspb" >
+    update MS_YSPB
+    set 
+        	  GHXE=#{ghxe,jdbcType=NUMERIC} , 
+        	  YGRS=#{ygrs,jdbcType=NUMERIC} , 
+        	  YYRS=#{yyrs,jdbcType=NUMERIC} , 
+        	  JZXH=#{jzxh,jdbcType=NUMERIC} , 
+        	  YYXE=#{yyxe,jdbcType=NUMERIC}  
+      where  
+		        GZRQ = #{gzrq,jdbcType=TIMESTAMP}  and
+		        KSDM = #{ksdm,jdbcType=VARCHAR}  and
+		        YSDM = #{ysdm,jdbcType=VARCHAR}  and
+		        ZBLB = #{zblb,jdbcType=NUMERIC}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.MsYspb" >
+    select 
+    <include refid="Base_Column_List" />
+    from MS_YSPB
+   <where>  
+  	  	<if test="gzrq != null" >
+  	 		       GZRQ  = #{gzrq}  
+  	  	</if>
+  	  	<if test="ksdm != null" >
+  	 		   and    KSDM  = #{ksdm}  
+  	  	</if>
+  	  	<if test="ysdm != null" >
+  	 		   and    YSDM  = #{ysdm}  
+  	  	</if>
+  	  	<if test="zblb != null" >
+  	 		   and    ZBLB  = #{zblb}  
+  	  	</if>
+  	  	<if test="ghxe != null" >
+  	 		   and    GHXE  = #{ghxe}  
+  	  	</if>
+  	  	<if test="ygrs != null" >
+  	 		   and    YGRS  = #{ygrs}  
+  	  	</if>
+  	  	<if test="yyrs != null" >
+  	 		   and    YYRS  = #{yyrs}  
+  	  	</if>
+  	  	<if test="jzxh != null" >
+  	 		   and    JZXH  = #{jzxh}  
+  	  	</if>
+  	  	<if test="yyxe != null" >
+  	 		   and    YYXE  = #{yyxe}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.MsYspb">  
+    DELETE FROM MS_YSPB  
+      <where>  
+  	  	<if test="gzrq != null" >
+  	 		       GZRQ  = #{gzrq}  
+  	  	</if>
+  	  	<if test="ksdm != null" >
+  	 		   and    KSDM  = #{ksdm}  
+  	  	</if>
+  	  	<if test="ysdm != null" >
+  	 		   and    YSDM  = #{ysdm}  
+  	  	</if>
+  	  	<if test="zblb != null" >
+  	 		   and    ZBLB  = #{zblb}  
+  	  	</if>
+  	  	<if test="ghxe != null" >
+  	 		   and    GHXE  = #{ghxe}  
+  	  	</if>
+  	  	<if test="ygrs != null" >
+  	 		   and    YGRS  = #{ygrs}  
+  	  	</if>
+  	  	<if test="yyrs != null" >
+  	 		   and    YYRS  = #{yyrs}  
+  	  	</if>
+  	  	<if test="jzxh != null" >
+  	 		   and    JZXH  = #{jzxh}  
+  	  	</if>
+  	  	<if test="yyxe != null" >
+  	 		   and    YYXE  = #{yyxe}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  MS_YSPB WHERE 
+		        GZRQ 
+		        KSDM 
+		        YSDM 
+		        ZBLB 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.MsYspb" >
+select count(*) from MS_YSPB
+ <where>  
+  	  	<if test="gzrq != null" >
+  	 		       GZRQ  = #{gzrq}  
+  	  	</if>
+  	  	<if test="ksdm != null" >
+  	 		   and    KSDM  = #{ksdm}  
+  	  	</if>
+  	  	<if test="ysdm != null" >
+  	 		   and    YSDM  = #{ysdm}  
+  	  	</if>
+  	  	<if test="zblb != null" >
+  	 		   and    ZBLB  = #{zblb}  
+  	  	</if>
+  	  	<if test="ghxe != null" >
+  	 		   and    GHXE  = #{ghxe}  
+  	  	</if>
+  	  	<if test="ygrs != null" >
+  	 		   and    YGRS  = #{ygrs}  
+  	  	</if>
+  	  	<if test="yyrs != null" >
+  	 		   and    YYRS  = #{yyrs}  
+  	  	</if>
+  	  	<if test="jzxh != null" >
+  	 		   and    JZXH  = #{jzxh}  
+  	  	</if>
+  	  	<if test="yyxe != null" >
+  	 		   and    YYXE  = #{yyxe}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from MS_YSPB 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from MS_YSPB where    
+     #{0}   LIKE '' + #{0} + '%'     
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.MsYspb" >
+    select 
+    <include refid="Base_Column_List" />
+    from MS_YSPB
+      <where>  
+		 
+  	  	</where>
+	</select>
+	
+</mapper>

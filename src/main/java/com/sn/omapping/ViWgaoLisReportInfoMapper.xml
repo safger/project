@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.odao.ViWgaoLisReportInfoMapper" > 
+  <resultMap id="BaseResultMap" type="com.sn.entity.ViWgaoLisReportInfo" >
+        <result property="medunitno" column="MEDUNITNO"  jdbcType="CHAR" />
+        <result property="sampleno" column="SAMPLENO"  jdbcType="VARCHAR" />
+        <result property="patientid" column="PATIENTID"  jdbcType="VARCHAR" />
+        <result property="cardno" column="CARDNO"  jdbcType="CHAR" />
+        <result property="patientname" column="PATIENTNAME"  jdbcType="VARCHAR" />
+        <result property="patientsex" column="PATIENTSEX"  jdbcType="CHAR" />
+        <result property="patientage" column="PATIENTAGE"  jdbcType="VARCHAR" />
+        <result property="agetype" column="AGETYPE"  jdbcType="VARCHAR" />
+        <result property="impression" column="IMPRESSION"  jdbcType="VARCHAR" />
+        <result property="remarks" column="REMARKS"  jdbcType="VARCHAR" />
+        <result property="sectionname" column="SECTIONNAME"  jdbcType="VARCHAR" />
+        <result property="doctorcode" column="DOCTORCODE"  jdbcType="VARCHAR" />
+        <result property="doctorname" column="DOCTORNAME"  jdbcType="VARCHAR" />
+        <result property="sampletime" column="SAMPLETIME"  jdbcType="DATE" />
+        <result property="receivetime" column="RECEIVETIME"  jdbcType="DATE" />
+        <result property="reporttime" column="REPORTTIME"  jdbcType="DATE" />
+        <result property="labman" column="LABMAN"  jdbcType="VARCHAR" />
+        <result property="testinfo" column="TESTINFO"  jdbcType="VARCHAR" />
+        <result property="idcard" column="IDCARD"  jdbcType="VARCHAR" />
+        <result property="reporttitle" column="REPORTTITLE"  jdbcType="CHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         MEDUNITNO ,
+         SAMPLENO ,
+         PATIENTID ,
+         CARDNO ,
+         PATIENTNAME ,
+         PATIENTSEX ,
+         PATIENTAGE ,
+         AGETYPE ,
+         IMPRESSION ,
+         REMARKS ,
+         SECTIONNAME ,
+         DOCTORCODE ,
+         DOCTORNAME ,
+         SAMPLETIME ,
+         RECEIVETIME ,
+         REPORTTIME ,
+         LABMAN ,
+         TESTINFO ,
+         IDCARD ,
+         REPORTTITLE 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from VI_WGAO_LIS_REPORT_INFO
+		      where   </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from VI_WGAO_LIS_REPORT_INFO
+    	where   </delete>
+  <insert id="insert" parameterType="com.sn.entity.ViWgaoLisReportInfo" >
+    
+         insert into VI_WGAO_LIS_REPORT_INFO ( 
+         		MEDUNITNO , 
+         	          		SAMPLENO , 
+         	          		PATIENTID , 
+         	          		CARDNO , 
+         	          		PATIENTNAME , 
+         	          		PATIENTSEX , 
+         	          		PATIENTAGE , 
+         	          		AGETYPE , 
+         	          		IMPRESSION , 
+         	          		REMARKS , 
+         	          		SECTIONNAME , 
+         	          		DOCTORCODE , 
+         	          		DOCTORNAME , 
+         	          		SAMPLETIME , 
+         	          		RECEIVETIME , 
+         	          		REPORTTIME , 
+         	          		LABMAN , 
+         	          		TESTINFO , 
+         	          		IDCARD , 
+         	          		REPORTTITLE  
+         	 )
+   	 	values (
+   	 		#{medunitno,jdbcType=CHAR} , 
+   	 	   	 		#{sampleno,jdbcType=VARCHAR} , 
+   	 	   	 		#{patientid,jdbcType=VARCHAR} , 
+   	 	   	 		#{cardno,jdbcType=CHAR} , 
+   	 	   	 		#{patientname,jdbcType=VARCHAR} , 
+   	 	   	 		#{patientsex,jdbcType=CHAR} , 
+   	 	   	 		#{patientage,jdbcType=VARCHAR} , 
+   	 	   	 		#{agetype,jdbcType=VARCHAR} , 
+   	 	   	 		#{impression,jdbcType=VARCHAR} , 
+   	 	   	 		#{remarks,jdbcType=VARCHAR} , 
+   	 	   	 		#{sectionname,jdbcType=VARCHAR} , 
+   	 	   	 		#{doctorcode,jdbcType=VARCHAR} , 
+   	 	   	 		#{doctorname,jdbcType=VARCHAR} , 
+   	 	   	 		#{sampletime,jdbcType=DATE} , 
+   	 	   	 		#{receivetime,jdbcType=DATE} , 
+   	 	   	 		#{reporttime,jdbcType=DATE} , 
+   	 	   	 		#{labman,jdbcType=VARCHAR} , 
+   	 	   	 		#{testinfo,jdbcType=VARCHAR} , 
+   	 	   	 		#{idcard,jdbcType=VARCHAR} , 
+   	 	   	 		#{reporttitle,jdbcType=CHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.ViWgaoLisReportInfo">
+  	  insert into  VI_WGAO_LIS_REPORT_INFO
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="medunitno != null" >
+  	 	  MEDUNITNO ,  
+  	  	</if>
+  	  	<if test="sampleno != null" >
+  	 	  SAMPLENO ,  
+  	  	</if>
+  	  	<if test="patientid != null" >
+  	 	  PATIENTID ,  
+  	  	</if>
+  	  	<if test="cardno != null" >
+  	 	  CARDNO ,  
+  	  	</if>
+  	  	<if test="patientname != null" >
+  	 	  PATIENTNAME ,  
+  	  	</if>
+  	  	<if test="patientsex != null" >
+  	 	  PATIENTSEX ,  
+  	  	</if>
+  	  	<if test="patientage != null" >
+  	 	  PATIENTAGE ,  
+  	  	</if>
+  	  	<if test="agetype != null" >
+  	 	  AGETYPE ,  
+  	  	</if>
+  	  	<if test="impression != null" >
+  	 	  IMPRESSION ,  
+  	  	</if>
+  	  	<if test="remarks != null" >
+  	 	  REMARKS ,  
+  	  	</if>
+  	  	<if test="sectionname != null" >
+  	 	  SECTIONNAME ,  
+  	  	</if>
+  	  	<if test="doctorcode != null" >
+  	 	  DOCTORCODE ,  
+  	  	</if>
+  	  	<if test="doctorname != null" >
+  	 	  DOCTORNAME ,  
+  	  	</if>
+  	  	<if test="sampletime != null" >
+  	 	  SAMPLETIME ,  
+  	  	</if>
+  	  	<if test="receivetime != null" >
+  	 	  RECEIVETIME ,  
+  	  	</if>
+  	  	<if test="reporttime != null" >
+  	 	  REPORTTIME ,  
+  	  	</if>
+  	  	<if test="labman != null" >
+  	 	  LABMAN ,  
+  	  	</if>
+  	  	<if test="testinfo != null" >
+  	 	  TESTINFO ,  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 	  IDCARD ,  
+  	  	</if>
+  	  	<if test="reporttitle != null" >
+  	 	  REPORTTITLE   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="medunitno != null" >
+        	#{medunitno,jdbcType=CHAR} , 
+       </if>
+    	<if test="sampleno != null" >
+        	#{sampleno,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="patientid != null" >
+        	#{patientid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="cardno != null" >
+        	#{cardno,jdbcType=CHAR} , 
+       </if>
+    	<if test="patientname != null" >
+        	#{patientname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="patientsex != null" >
+        	#{patientsex,jdbcType=CHAR} , 
+       </if>
+    	<if test="patientage != null" >
+        	#{patientage,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="agetype != null" >
+        	#{agetype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="impression != null" >
+        	#{impression,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="remarks != null" >
+        	#{remarks,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sectionname != null" >
+        	#{sectionname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="doctorcode != null" >
+        	#{doctorcode,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="doctorname != null" >
+        	#{doctorname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sampletime != null" >
+        	#{sampletime,jdbcType=DATE} , 
+       </if>
+    	<if test="receivetime != null" >
+        	#{receivetime,jdbcType=DATE} , 
+       </if>
+    	<if test="reporttime != null" >
+        	#{reporttime,jdbcType=DATE} , 
+       </if>
+    	<if test="labman != null" >
+        	#{labman,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="testinfo != null" >
+        	#{testinfo,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="idcard != null" >
+        	#{idcard,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="reporttitle != null" >
+        	#{reporttitle,jdbcType=CHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.ViWgaoLisReportInfo" >
+    update  VI_WGAO_LIS_REPORT_INFO
+    <set >
+    	<if test="medunitno != null" >
+        	  MEDUNITNO=#{medunitno,jdbcType=CHAR} , 
+       </if>
+    	<if test="sampleno != null" >
+        	  SAMPLENO=#{sampleno,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="patientid != null" >
+        	  PATIENTID=#{patientid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="cardno != null" >
+        	  CARDNO=#{cardno,jdbcType=CHAR} , 
+       </if>
+    	<if test="patientname != null" >
+        	  PATIENTNAME=#{patientname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="patientsex != null" >
+        	  PATIENTSEX=#{patientsex,jdbcType=CHAR} , 
+       </if>
+    	<if test="patientage != null" >
+        	  PATIENTAGE=#{patientage,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="agetype != null" >
+        	  AGETYPE=#{agetype,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="impression != null" >
+        	  IMPRESSION=#{impression,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="remarks != null" >
+        	  REMARKS=#{remarks,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sectionname != null" >
+        	  SECTIONNAME=#{sectionname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="doctorcode != null" >
+        	  DOCTORCODE=#{doctorcode,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="doctorname != null" >
+        	  DOCTORNAME=#{doctorname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sampletime != null" >
+        	  SAMPLETIME=#{sampletime,jdbcType=DATE} , 
+       </if>
+    	<if test="receivetime != null" >
+        	  RECEIVETIME=#{receivetime,jdbcType=DATE} , 
+       </if>
+    	<if test="reporttime != null" >
+        	  REPORTTIME=#{reporttime,jdbcType=DATE} , 
+       </if>
+    	<if test="labman != null" >
+        	  LABMAN=#{labman,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="testinfo != null" >
+        	  TESTINFO=#{testinfo,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="idcard != null" >
+        	  IDCARD=#{idcard,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="reporttitle != null" >
+        	  REPORTTITLE=#{reporttitle,jdbcType=CHAR}  
+       </if>
+ 	 </set>
+    where  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.ViWgaoLisReportInfo" >
+    update VI_WGAO_LIS_REPORT_INFO
+    set 
+        	  MEDUNITNO=#{medunitno,jdbcType=CHAR} , 
+        	  SAMPLENO=#{sampleno,jdbcType=VARCHAR} , 
+        	  PATIENTID=#{patientid,jdbcType=VARCHAR} , 
+        	  CARDNO=#{cardno,jdbcType=CHAR} , 
+        	  PATIENTNAME=#{patientname,jdbcType=VARCHAR} , 
+        	  PATIENTSEX=#{patientsex,jdbcType=CHAR} , 
+        	  PATIENTAGE=#{patientage,jdbcType=VARCHAR} , 
+        	  AGETYPE=#{agetype,jdbcType=VARCHAR} , 
+        	  IMPRESSION=#{impression,jdbcType=VARCHAR} , 
+        	  REMARKS=#{remarks,jdbcType=VARCHAR} , 
+        	  SECTIONNAME=#{sectionname,jdbcType=VARCHAR} , 
+        	  DOCTORCODE=#{doctorcode,jdbcType=VARCHAR} , 
+        	  DOCTORNAME=#{doctorname,jdbcType=VARCHAR} , 
+        	  SAMPLETIME=#{sampletime,jdbcType=DATE} , 
+        	  RECEIVETIME=#{receivetime,jdbcType=DATE} , 
+        	  REPORTTIME=#{reporttime,jdbcType=DATE} , 
+        	  LABMAN=#{labman,jdbcType=VARCHAR} , 
+        	  TESTINFO=#{testinfo,jdbcType=VARCHAR} , 
+        	  IDCARD=#{idcard,jdbcType=VARCHAR} , 
+        	  REPORTTITLE=#{reporttitle,jdbcType=CHAR}  
+      where  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.ViWgaoLisReportInfo" >
+    select 
+    <include refid="Base_Column_List" />
+    from VI_WGAO_LIS_REPORT_INFO 
+   <where>  
+  		 SampleTime>= sysdate-30
+  	  	<if test="medunitno != null" >
+  	 		 and      MEDUNITNO  = #{medunitno}  
+  	  	</if>
+  	  	<if test="sampleno != null" >
+  	 		   and    SAMPLENO  = #{sampleno}  
+  	  	</if>
+  	  	<if test="patientid != null" >
+  	 		   and    PATIENTID  = #{patientid}  
+  	  	</if>
+  	  	<if test="cardno != null" >
+  	 		   and    CARDNO  = #{cardno}  
+  	  	</if>
+  	  	<if test="patientname != null" >
+  	 		   and    PATIENTNAME  = #{patientname}  
+  	  	</if>
+  	  	<if test="patientsex != null" >
+  	 		   and    PATIENTSEX  = #{patientsex}  
+  	  	</if>
+  	  	<if test="patientage != null" >
+  	 		   and    PATIENTAGE  = #{patientage}  
+  	  	</if>
+  	  	<if test="agetype != null" >
+  	 		   and    AGETYPE  = #{agetype}  
+  	  	</if>
+  	  	<if test="impression != null" >
+  	 		   and    IMPRESSION  = #{impression}  
+  	  	</if>
+  	  	<if test="remarks != null" >
+  	 		   and    REMARKS  = #{remarks}  
+  	  	</if>
+  	  	<if test="sectionname != null" >
+  	 		   and    SECTIONNAME  = #{sectionname}  
+  	  	</if>
+  	  	<if test="doctorcode != null" >
+  	 		   and    DOCTORCODE  = #{doctorcode}  
+  	  	</if>
+  	  	<if test="doctorname != null" >
+  	 		   and    DOCTORNAME  = #{doctorname}  
+  	  	</if>
+  	  	<if test="sampletime != null" >
+  	 		   and    SAMPLETIME  = #{sampletime}  
+  	  	</if>
+  	  	<if test="receivetime != null" >
+  	 		   and    RECEIVETIME  = #{receivetime}  
+  	  	</if>
+  	  	<if test="reporttime != null" >
+  	 		   and    REPORTTIME  = #{reporttime}  
+  	  	</if>
+  	  	<if test="labman != null" >
+  	 		   and    LABMAN  = #{labman}  
+  	  	</if>
+  	  	<if test="testinfo != null" >
+  	 		   and    TESTINFO  = #{testinfo}  
+  	  	</if>
+  	  	<if test="idcard != null" > 
+  	 		   and    IDCARD  in (#{idcard})  
+  	  	</if>
+  	  	<if test="reporttitle != null" >
+  	 		   and    REPORTTITLE  = #{reporttitle}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.ViWgaoLisReportInfo">  
+    DELETE FROM VI_WGAO_LIS_REPORT_INFO  
+      <where>  
+  	  	<if test="medunitno != null" >
+  	 		       MEDUNITNO  = #{medunitno}  
+  	  	</if>
+  	  	<if test="sampleno != null" >
+  	 		   and    SAMPLENO  = #{sampleno}  
+  	  	</if>
+  	  	<if test="patientid != null" >
+  	 		   and    PATIENTID  = #{patientid}  
+  	  	</if>
+  	  	<if test="cardno != null" >
+  	 		   and    CARDNO  = #{cardno}  
+  	  	</if>
+  	  	<if test="patientname != null" >
+  	 		   and    PATIENTNAME  = #{patientname}  
+  	  	</if>
+  	  	<if test="patientsex != null" >
+  	 		   and    PATIENTSEX  = #{patientsex}  
+  	  	</if>
+  	  	<if test="patientage != null" >
+  	 		   and    PATIENTAGE  = #{patientage}  
+  	  	</if>
+  	  	<if test="agetype != null" >
+  	 		   and    AGETYPE  = #{agetype}  
+  	  	</if>
+  	  	<if test="impression != null" >
+  	 		   and    IMPRESSION  = #{impression}  
+  	  	</if>
+  	  	<if test="remarks != null" >
+  	 		   and    REMARKS  = #{remarks}  
+  	  	</if>
+  	  	<if test="sectionname != null" >
+  	 		   and    SECTIONNAME  = #{sectionname}  
+  	  	</if>
+  	  	<if test="doctorcode != null" >
+  	 		   and    DOCTORCODE  = #{doctorcode}  
+  	  	</if>
+  	  	<if test="doctorname != null" >
+  	 		   and    DOCTORNAME  = #{doctorname}  
+  	  	</if>
+  	  	<if test="sampletime != null" >
+  	 		   and    SAMPLETIME  = #{sampletime}  
+  	  	</if>
+  	  	<if test="receivetime != null" >
+  	 		   and    RECEIVETIME  = #{receivetime}  
+  	  	</if>
+  	  	<if test="reporttime != null" >
+  	 		   and    REPORTTIME  = #{reporttime}  
+  	  	</if>
+  	  	<if test="labman != null" >
+  	 		   and    LABMAN  = #{labman}  
+  	  	</if>
+  	  	<if test="testinfo != null" >
+  	 		   and    TESTINFO  = #{testinfo}  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 		   and    IDCARD  = #{idcard}  
+  	  	</if>
+  	  	<if test="reporttitle != null" >
+  	 		   and    REPORTTITLE  = #{reporttitle}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  VI_WGAO_LIS_REPORT_INFO WHERE 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.ViWgaoLisReportInfo" >
+select count(*) from VI_WGAO_LIS_REPORT_INFO
+ <where>  
+  	  	<if test="medunitno != null" >
+  	 		       MEDUNITNO  = #{medunitno}  
+  	  	</if>
+  	  	<if test="sampleno != null" >
+  	 		   and    SAMPLENO  = #{sampleno}  
+  	  	</if>
+  	  	<if test="patientid != null" >
+  	 		   and    PATIENTID  = #{patientid}  
+  	  	</if>
+  	  	<if test="cardno != null" >
+  	 		   and    CARDNO  = #{cardno}  
+  	  	</if>
+  	  	<if test="patientname != null" >
+  	 		   and    PATIENTNAME  = #{patientname}  
+  	  	</if>
+  	  	<if test="patientsex != null" >
+  	 		   and    PATIENTSEX  = #{patientsex}  
+  	  	</if>
+  	  	<if test="patientage != null" >
+  	 		   and    PATIENTAGE  = #{patientage}  
+  	  	</if>
+  	  	<if test="agetype != null" >
+  	 		   and    AGETYPE  = #{agetype}  
+  	  	</if>
+  	  	<if test="impression != null" >
+  	 		   and    IMPRESSION  = #{impression}  
+  	  	</if>
+  	  	<if test="remarks != null" >
+  	 		   and    REMARKS  = #{remarks}  
+  	  	</if>
+  	  	<if test="sectionname != null" >
+  	 		   and    SECTIONNAME  = #{sectionname}  
+  	  	</if>
+  	  	<if test="doctorcode != null" >
+  	 		   and    DOCTORCODE  = #{doctorcode}  
+  	  	</if>
+  	  	<if test="doctorname != null" >
+  	 		   and    DOCTORNAME  = #{doctorname}  
+  	  	</if>
+  	  	<if test="sampletime != null" >
+  	 		   and    SAMPLETIME  = #{sampletime}  
+  	  	</if>
+  	  	<if test="receivetime != null" >
+  	 		   and    RECEIVETIME  = #{receivetime}  
+  	  	</if>
+  	  	<if test="reporttime != null" >
+  	 		   and    REPORTTIME  = #{reporttime}  
+  	  	</if>
+  	  	<if test="labman != null" >
+  	 		   and    LABMAN  = #{labman}  
+  	  	</if>
+  	  	<if test="testinfo != null" >
+  	 		   and    TESTINFO  = #{testinfo}  
+  	  	</if>
+  	  	<if test="idcard != null" >
+  	 		   and    IDCARD  = #{idcard}  
+  	  	</if>
+  	  	<if test="reporttitle != null" >
+  	 		   and    REPORTTITLE  = #{reporttitle}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"   parameterType="com.sn.entity.ViWgaoLisReportInfo" >
+select * from VI_WGAO_LIS_REPORT_INFO order by #{order}
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from VI_WGAO_LIS_REPORT_INFO where  
+     #{0}   LIKE CONCAT('%','#{1}','%' ) 
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.ViWgaoLisReportInfo" >
+    select 
+    <include refid="Base_Column_List" />
+    from VI_WGAO_LIS_REPORT_INFO
+      <where>  
+		 
+  	  	</where>
+	</select>
+	
+</mapper>

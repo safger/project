@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.GregMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Greg" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="doctorcode" column="doctorcode"  jdbcType="VARCHAR" />
+        <result property="doctor" column="doctor"  jdbcType="VARCHAR" />
+        <result property="userid" column="userid"  jdbcType="VARCHAR" />
+        <result property="username" column="username"  jdbcType="VARCHAR" />
+        <result property="phone" column="phone"  jdbcType="VARCHAR" />
+        <result property="address" column="address"  jdbcType="VARCHAR" />
+        <result property="serviceDay" column="serviceDay"  jdbcType="TIMESTAMP" />
+        <result property="serviceHours" column="serviceHours"  jdbcType="VARCHAR" />
+        <result property="createdate" column="createdate"  jdbcType="TIMESTAMP" />
+        <result property="weixinid" column="weixinid"  jdbcType="VARCHAR" />
+        <result property="queue" column="queue"  jdbcType="INTEGER" />
+        <result property="zblb" column="zblb"  jdbcType="INTEGER" />
+        <result property="department" column="department"  jdbcType="VARCHAR" />
+        <result property="jzaddress" column="jzaddress"  jdbcType="VARCHAR" />
+        <result property="sex" column="sex"  jdbcType="INTEGER" />
+        <result property="departmentcode" column="departmentcode"  jdbcType="VARCHAR" />
+        <result property="serial" column="Serial"  jdbcType="BIGINT" />
+        <result property="status" column="status"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         doctorcode ,
+         doctor ,
+         userid ,
+         username ,
+         phone ,
+         address ,
+         serviceDay ,
+         serviceHours ,
+         createdate ,
+         weixinid ,
+         queue ,
+         zblb ,
+         department ,
+         jzaddress ,
+         sex ,
+         departmentcode ,
+         Serial ,
+         status 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from bu_greg
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bu_greg
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Greg" >
+    
+         insert into bu_greg ( 
+         		FUID , 
+         	          		doctorcode , 
+         	          		doctor , 
+         	          		userid , 
+         	          		username , 
+         	          		phone , 
+         	          		address , 
+         	          		serviceDay , 
+         	          		serviceHours , 
+         	          		createdate , 
+         	          		weixinid , 
+         	          		queue , 
+         	          		zblb , 
+         	          		department , 
+         	          		jzaddress , 
+         	          		sex , 
+         	          		departmentcode , 
+         	          		Serial , 
+         	          		status  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{doctorcode,jdbcType=VARCHAR} , 
+   	 	   	 		#{doctor,jdbcType=VARCHAR} , 
+   	 	   	 		#{userid,jdbcType=VARCHAR} , 
+   	 	   	 		#{username,jdbcType=VARCHAR} , 
+   	 	   	 		#{phone,jdbcType=VARCHAR} , 
+   	 	   	 		#{address,jdbcType=VARCHAR} , 
+   	 	   	 		#{serviceDay,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{serviceHours,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{weixinid,jdbcType=VARCHAR} , 
+   	 	   	 		#{queue,jdbcType=INTEGER} , 
+   	 	   	 		#{zblb,jdbcType=INTEGER} , 
+   	 	   	 		#{department,jdbcType=VARCHAR} , 
+   	 	   	 		#{jzaddress,jdbcType=VARCHAR} , 
+   	 	   	 		#{sex,jdbcType=INTEGER} , 
+   	 	   	 		#{departmentcode,jdbcType=VARCHAR} , 
+   	 	   	 		#{serial,jdbcType=BIGINT} , 
+   	 	   	 		#{status,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Greg">
+  	  insert into  bu_greg
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="doctorcode != null" >
+  	 	  doctorcode ,  
+  	  	</if>
+  	  	<if test="doctor != null" >
+  	 	  doctor ,  
+  	  	</if>
+  	  	<if test="userid != null" >
+  	 	  userid ,  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 	  username ,  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 	  phone ,  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 	  address ,  
+  	  	</if>
+  	  	<if test="serviceDay != null" >
+  	 	  serviceDay ,  
+  	  	</if>
+  	  	<if test="serviceHours != null" >
+  	 	  serviceHours ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  createdate ,  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 	  weixinid ,  
+  	  	</if>
+  	  	<if test="queue != null" >
+  	 	  queue ,  
+  	  	</if>
+  	  	<if test="zblb != null" >
+  	 	  zblb ,  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 	  department ,  
+  	  	</if>
+  	  	<if test="jzaddress != null" >
+  	 	  jzaddress ,  
+  	  	</if>
+  	  	<if test="sex != null" >
+  	 	  sex ,  
+  	  	</if>
+  	  	<if test="departmentcode != null" >
+  	 	  departmentcode ,  
+  	  	</if>
+  	  	<if test="serial != null" >
+  	 	  Serial ,  
+  	  	</if>
+  	  	<if test="status != null" >
+  	 	  status   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="doctorcode != null" >
+        	#{doctorcode,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="doctor != null" >
+        	#{doctor,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="userid != null" >
+        	#{userid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="username != null" >
+        	#{username,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="phone != null" >
+        	#{phone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="address != null" >
+        	#{address,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="serviceDay != null" >
+        	#{serviceDay,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="serviceHours != null" >
+        	#{serviceHours,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="weixinid != null" >
+        	#{weixinid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="queue != null" >
+        	#{queue,jdbcType=INTEGER} , 
+       </if>
+    	<if test="zblb != null" >
+        	#{zblb,jdbcType=INTEGER} , 
+       </if>
+    	<if test="department != null" >
+        	#{department,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jzaddress != null" >
+        	#{jzaddress,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sex != null" >
+        	#{sex,jdbcType=INTEGER} , 
+       </if>
+    	<if test="departmentcode != null" >
+        	#{departmentcode,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="serial != null" >
+        	#{serial,jdbcType=BIGINT} , 
+       </if>
+    	<if test="status != null" >
+        	#{status,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Greg" >
+    update  bu_greg
+    <set >
+    	<if test="doctorcode != null" >
+        	  doctorcode=#{doctorcode,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="doctor != null" >
+        	  doctor=#{doctor,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="userid != null" >
+        	  userid=#{userid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="username != null" >
+        	  username=#{username,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="phone != null" >
+        	  phone=#{phone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="address != null" >
+        	  address=#{address,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="serviceDay != null" >
+        	  serviceDay=#{serviceDay,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="serviceHours != null" >
+        	  serviceHours=#{serviceHours,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  createdate=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="weixinid != null" >
+        	  weixinid=#{weixinid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="queue != null" >
+        	  queue=#{queue,jdbcType=INTEGER} , 
+       </if>
+    	<if test="zblb != null" >
+        	  zblb=#{zblb,jdbcType=INTEGER} , 
+       </if>
+    	<if test="department != null" >
+        	  department=#{department,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jzaddress != null" >
+        	  jzaddress=#{jzaddress,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sex != null" >
+        	  sex=#{sex,jdbcType=INTEGER} , 
+       </if>
+    	<if test="departmentcode != null" >
+        	  departmentcode=#{departmentcode,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="serial != null" >
+        	  Serial=#{serial,jdbcType=BIGINT} , 
+       </if>
+    	<if test="status != null" >
+        	  status=#{status,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Greg" >
+    update bu_greg
+    set 
+        	  doctorcode=#{doctorcode,jdbcType=VARCHAR} , 
+        	  doctor=#{doctor,jdbcType=VARCHAR} , 
+        	  userid=#{userid,jdbcType=VARCHAR} , 
+        	  username=#{username,jdbcType=VARCHAR} , 
+        	  phone=#{phone,jdbcType=VARCHAR} , 
+        	  address=#{address,jdbcType=VARCHAR} , 
+        	  serviceDay=#{serviceDay,jdbcType=TIMESTAMP} , 
+        	  serviceHours=#{serviceHours,jdbcType=VARCHAR} , 
+        	  createdate=#{createdate,jdbcType=TIMESTAMP} , 
+        	  weixinid=#{weixinid,jdbcType=VARCHAR} , 
+        	  queue=#{queue,jdbcType=INTEGER} , 
+        	  zblb=#{zblb,jdbcType=INTEGER} , 
+        	  department=#{department,jdbcType=VARCHAR} , 
+        	  jzaddress=#{jzaddress,jdbcType=VARCHAR} , 
+        	  sex=#{sex,jdbcType=INTEGER} , 
+        	  departmentcode=#{departmentcode,jdbcType=VARCHAR} , 
+        	  Serial=#{serial,jdbcType=BIGINT} , 
+        	  status=#{status,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Greg" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_greg
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="doctorcode != null" >
+  	 		   and    doctorcode  = #{doctorcode}  
+  	  	</if>
+  	  	<if test="doctor != null" >
+  	 		   and    doctor  = #{doctor}  
+  	  	</if>
+  	  	<if test="userid != null" >
+  	 		   and    userid  = #{userid}  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 		   and    username  = #{username}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    phone  = #{phone}  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 		   and    address  = #{address}  
+  	  	</if>
+  	  	<if test="serviceDay != null" >
+  	 		   and    serviceDay  = #{serviceDay}  
+  	  	</if>
+  	  	<if test="serviceHours != null" >
+  	 		   and    serviceHours  = #{serviceHours}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 		   and    weixinid  = #{weixinid}  
+  	  	</if>
+  	  	<if test="queue != null" >
+  	 		   and    queue  = #{queue}  
+  	  	</if>
+  	  	<if test="zblb != null" >
+  	 		   and    zblb  = #{zblb}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    department  = #{department}  
+  	  	</if>
+  	  	<if test="jzaddress != null" >
+  	 		   and    jzaddress  = #{jzaddress}  
+  	  	</if>
+  	  	<if test="sex != null" >
+  	 		   and    sex  = #{sex}  
+  	  	</if>
+  	  	<if test="departmentcode != null" >
+  	 		   and    departmentcode  = #{departmentcode}  
+  	  	</if>
+  	  	<if test="serial != null" >
+  	 		   and    Serial  = #{serial}  
+  	  	</if>
+  	  	<if test="status != null" >
+  	 		   and    status  = #{status}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Greg">  
+    DELETE FROM bu_greg  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="doctorcode != null" >
+  	 		   and    doctorcode  = #{doctorcode}  
+  	  	</if>
+  	  	<if test="doctor != null" >
+  	 		   and    doctor  = #{doctor}  
+  	  	</if>
+  	  	<if test="userid != null" >
+  	 		   and    userid  = #{userid}  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 		   and    username  = #{username}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    phone  = #{phone}  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 		   and    address  = #{address}  
+  	  	</if>
+  	  	<if test="serviceDay != null" >
+  	 		   and    serviceDay  = #{serviceDay}  
+  	  	</if>
+  	  	<if test="serviceHours != null" >
+  	 		   and    serviceHours  = #{serviceHours}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 		   and    weixinid  = #{weixinid}  
+  	  	</if>
+  	  	<if test="queue != null" >
+  	 		   and    queue  = #{queue}  
+  	  	</if>
+  	  	<if test="zblb != null" >
+  	 		   and    zblb  = #{zblb}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    department  = #{department}  
+  	  	</if>
+  	  	<if test="jzaddress != null" >
+  	 		   and    jzaddress  = #{jzaddress}  
+  	  	</if>
+  	  	<if test="sex != null" >
+  	 		   and    sex  = #{sex}  
+  	  	</if>
+  	  	<if test="departmentcode != null" >
+  	 		   and    departmentcode  = #{departmentcode}  
+  	  	</if>
+  	  	<if test="serial != null" >
+  	 		   and    Serial  = #{serial}  
+  	  	</if>
+  	  	<if test="status != null" >
+  	 		   and    status  = #{status}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  bu_greg WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Greg" >
+select count(*) from bu_greg
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="doctorcode != null" >
+  	 		   and    doctorcode  = #{doctorcode}  
+  	  	</if>
+  	  	<if test="doctor != null" >
+  	 		   and    doctor  = #{doctor}  
+  	  	</if>
+  	  	<if test="userid != null" >
+  	 		   and    userid  = #{userid}  
+  	  	</if>
+  	  	<if test="username != null" >
+  	 		   and    username  = #{username}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    phone  = #{phone}  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 		   and    address  = #{address}  
+  	  	</if>
+  	  	<if test="serviceDay != null" >
+  	 		   and    serviceDay  = #{serviceDay}  
+  	  	</if>
+  	  	<if test="serviceHours != null" >
+  	 		   and    serviceHours  = #{serviceHours}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 		   and    weixinid  = #{weixinid}  
+  	  	</if>
+  	  	<if test="queue != null" >
+  	 		   and    queue  = #{queue}  
+  	  	</if>
+  	  	<if test="zblb != null" >
+  	 		   and    zblb  = #{zblb}  
+  	  	</if>
+  	  	<if test="department != null" >
+  	 		   and    department  = #{department}  
+  	  	</if>
+  	  	<if test="jzaddress != null" >
+  	 		   and    jzaddress  = #{jzaddress}  
+  	  	</if>
+  	  	<if test="sex != null" >
+  	 		   and    sex  = #{sex}  
+  	  	</if>
+  	  	<if test="departmentcode != null" >
+  	 		   and    departmentcode  = #{departmentcode}  
+  	  	</if>
+  	  	<if test="serial != null" >
+  	 		   and    Serial  = #{serial}  
+  	  	</if>
+  	  	<if test="status != null" >
+  	 		   and    status  = #{status}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from bu_greg 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from bu_greg where  
+     #{0}   LIKE CONCAT('%','#{1}','%' ) 
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Greg" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_greg
+      <where>  
+		  	<if test="username != null" >
+  	 		        username  LIKE CONCAT('%','${username}','%' ) or   doctorcode   LIKE CONCAT('%','${username}','%' )
+  	  	</if>
+  	  	</where> 
+	</select>
+	<select id="selectByView" resultMap="BaseResultMap" parameterType="com.sn.entity.Guser" >
+   select r.* from bu_greg r LEFT JOIN bu_guser u on r.userid=u.FUID  
+      <where>  
+		 <if test="parentid != null" >
+  	 		       (u.FUID=#{parentid} or u.parentid=#{parentid})
+  	  	</if>
+  	  	</where>
+  	  	order by createdate desc
+	</select>
+</mapper>

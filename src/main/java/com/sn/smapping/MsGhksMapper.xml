@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.sdao.MsGhksMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.MsGhks" >
+    <id column="Ksdm" property="ksdm" jdbcType="VARCHAR" />
+        <result property="ksmc" column="KSMC"  jdbcType="VARCHAR" />
+        <result property="ghlb" column="GHLB"  jdbcType="NUMERIC" />
+        <result property="pydm" column="PYDM"  jdbcType="VARCHAR" />
+        <result property="wbdm" column="WBDM"  jdbcType="VARCHAR" />
+        <result property="jxdm" column="JXDM"  jdbcType="VARCHAR" />
+        <result property="qtdm" column="QTDM"  jdbcType="VARCHAR" />
+        <result property="ghf" column="GHF"  jdbcType="NUMERIC" />
+        <result property="zlf" column="ZLF"  jdbcType="NUMERIC" />
+        <result property="zjmz" column="ZJMZ"  jdbcType="NUMERIC" />
+        <result property="ghxe" column="GHXE"  jdbcType="NUMERIC" />
+        <result property="ygrs" column="YGRS"  jdbcType="NUMERIC" />
+        <result property="yyrs" column="YYRS"  jdbcType="NUMERIC" />
+        <result property="ghrq" column="GHRQ"  jdbcType="TIMESTAMP" />
+        <result property="mzks" column="MZKS"  jdbcType="NUMERIC" />
+        <result property="tjpb" column="TJPB"  jdbcType="NUMERIC" />
+        <result property="tjf" column="TJF"  jdbcType="NUMERIC" />
+        <result property="mzlb" column="MZLB"  jdbcType="NUMERIC" />
+        <result property="jzxh" column="JZXH"  jdbcType="NUMERIC" />
+        <result property="icbc" column="ICBC"  jdbcType="NUMERIC" />
+        <result property="jrks" column="JRKS"  jdbcType="NUMERIC" />
+        <result property="ksdd" column="KSDD"  jdbcType="VARCHAR" />
+        <result property="xybz" column="XYBZ"  jdbcType="VARCHAR" />
+        <result property="ybksdm" column="YBKSDM"  jdbcType="VARCHAR" />
+        <result property="ybksmc" column="YBKSMC"  jdbcType="VARCHAR" />
+        <result property="ghjz" column="GHJZ"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         KSDM ,
+         KSMC ,
+         GHLB ,
+         PYDM ,
+         WBDM ,
+         JXDM ,
+         QTDM ,
+         GHF ,
+         ZLF ,
+         ZJMZ ,
+         GHXE ,
+         YGRS ,
+         YYRS ,
+         GHRQ ,
+         MZKS ,
+         TJPB ,
+         TJF ,
+         MZLB ,
+         JZXH ,
+         ICBC ,
+         JRKS ,
+         KSDD ,
+         XYBZ ,
+         YBKSDM ,
+         YBKSMC ,
+         GHJZ 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from MS_GHKS
+		      where 
+		        KSDM = #{ksdm,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from MS_GHKS
+    	where 
+		        KSDM = #{ksdm,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.MsGhks" >
+    
+         insert into MS_GHKS ( 
+         		KSDM , 
+         	          		KSMC , 
+         	          		GHLB , 
+         	          		PYDM , 
+         	          		WBDM , 
+         	          		JXDM , 
+         	          		QTDM , 
+         	          		GHF , 
+         	          		ZLF , 
+         	          		ZJMZ , 
+         	          		GHXE , 
+         	          		YGRS , 
+         	          		YYRS , 
+         	          		GHRQ , 
+         	          		MZKS , 
+         	          		TJPB , 
+         	          		TJF , 
+         	          		MZLB , 
+         	          		JZXH , 
+         	          		ICBC , 
+         	          		JRKS , 
+         	          		KSDD , 
+         	          		XYBZ , 
+         	          		YBKSDM , 
+         	          		YBKSMC , 
+         	          		GHJZ  
+         	 )
+   	 	values (
+   	 		#{ksdm,jdbcType=VARCHAR} , 
+   	 	   	 		#{ksmc,jdbcType=VARCHAR} , 
+   	 	   	 		#{ghlb,jdbcType=NUMERIC} , 
+   	 	   	 		#{pydm,jdbcType=VARCHAR} , 
+   	 	   	 		#{wbdm,jdbcType=VARCHAR} , 
+   	 	   	 		#{jxdm,jdbcType=VARCHAR} , 
+   	 	   	 		#{qtdm,jdbcType=VARCHAR} , 
+   	 	   	 		#{ghf,jdbcType=NUMERIC} , 
+   	 	   	 		#{zlf,jdbcType=NUMERIC} , 
+   	 	   	 		#{zjmz,jdbcType=NUMERIC} , 
+   	 	   	 		#{ghxe,jdbcType=NUMERIC} , 
+   	 	   	 		#{ygrs,jdbcType=NUMERIC} , 
+   	 	   	 		#{yyrs,jdbcType=NUMERIC} , 
+   	 	   	 		#{ghrq,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{mzks,jdbcType=NUMERIC} , 
+   	 	   	 		#{tjpb,jdbcType=NUMERIC} , 
+   	 	   	 		#{tjf,jdbcType=NUMERIC} , 
+   	 	   	 		#{mzlb,jdbcType=NUMERIC} , 
+   	 	   	 		#{jzxh,jdbcType=NUMERIC} , 
+   	 	   	 		#{icbc,jdbcType=NUMERIC} , 
+   	 	   	 		#{jrks,jdbcType=NUMERIC} , 
+   	 	   	 		#{ksdd,jdbcType=VARCHAR} , 
+   	 	   	 		#{xybz,jdbcType=VARCHAR} , 
+   	 	   	 		#{ybksdm,jdbcType=VARCHAR} , 
+   	 	   	 		#{ybksmc,jdbcType=VARCHAR} , 
+   	 	   	 		#{ghjz,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.MsGhks">
+  	  insert into  MS_GHKS
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="ksdm != null" >
+  	 	  KSDM ,  
+  	  	</if>
+  	  	<if test="ksmc != null" >
+  	 	  KSMC ,  
+  	  	</if>
+  	  	<if test="ghlb != null" >
+  	 	  GHLB ,  
+  	  	</if>
+  	  	<if test="pydm != null" >
+  	 	  PYDM ,  
+  	  	</if>
+  	  	<if test="wbdm != null" >
+  	 	  WBDM ,  
+  	  	</if>
+  	  	<if test="jxdm != null" >
+  	 	  JXDM ,  
+  	  	</if>
+  	  	<if test="qtdm != null" >
+  	 	  QTDM ,  
+  	  	</if>
+  	  	<if test="ghf != null" >
+  	 	  GHF ,  
+  	  	</if>
+  	  	<if test="zlf != null" >
+  	 	  ZLF ,  
+  	  	</if>
+  	  	<if test="zjmz != null" >
+  	 	  ZJMZ ,  
+  	  	</if>
+  	  	<if test="ghxe != null" >
+  	 	  GHXE ,  
+  	  	</if>
+  	  	<if test="ygrs != null" >
+  	 	  YGRS ,  
+  	  	</if>
+  	  	<if test="yyrs != null" >
+  	 	  YYRS ,  
+  	  	</if>
+  	  	<if test="ghrq != null" >
+  	 	  GHRQ ,  
+  	  	</if>
+  	  	<if test="mzks != null" >
+  	 	  MZKS ,  
+  	  	</if>
+  	  	<if test="tjpb != null" >
+  	 	  TJPB ,  
+  	  	</if>
+  	  	<if test="tjf != null" >
+  	 	  TJF ,  
+  	  	</if>
+  	  	<if test="mzlb != null" >
+  	 	  MZLB ,  
+  	  	</if>
+  	  	<if test="jzxh != null" >
+  	 	  JZXH ,  
+  	  	</if>
+  	  	<if test="icbc != null" >
+  	 	  ICBC ,  
+  	  	</if>
+  	  	<if test="jrks != null" >
+  	 	  JRKS ,  
+  	  	</if>
+  	  	<if test="ksdd != null" >
+  	 	  KSDD ,  
+  	  	</if>
+  	  	<if test="xybz != null" >
+  	 	  XYBZ ,  
+  	  	</if>
+  	  	<if test="ybksdm != null" >
+  	 	  YBKSDM ,  
+  	  	</if>
+  	  	<if test="ybksmc != null" >
+  	 	  YBKSMC ,  
+  	  	</if>
+  	  	<if test="ghjz != null" >
+  	 	  GHJZ   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="ksdm != null" >
+        	#{ksdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ksmc != null" >
+        	#{ksmc,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ghlb != null" >
+        	#{ghlb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="pydm != null" >
+        	#{pydm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="wbdm != null" >
+        	#{wbdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jxdm != null" >
+        	#{jxdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="qtdm != null" >
+        	#{qtdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ghf != null" >
+        	#{ghf,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="zlf != null" >
+        	#{zlf,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="zjmz != null" >
+        	#{zjmz,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="ghxe != null" >
+        	#{ghxe,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="ygrs != null" >
+        	#{ygrs,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="yyrs != null" >
+        	#{yyrs,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="ghrq != null" >
+        	#{ghrq,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="mzks != null" >
+        	#{mzks,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="tjpb != null" >
+        	#{tjpb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="tjf != null" >
+        	#{tjf,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="mzlb != null" >
+        	#{mzlb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="jzxh != null" >
+        	#{jzxh,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="icbc != null" >
+        	#{icbc,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="jrks != null" >
+        	#{jrks,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="ksdd != null" >
+        	#{ksdd,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="xybz != null" >
+        	#{xybz,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ybksdm != null" >
+        	#{ybksdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ybksmc != null" >
+        	#{ybksmc,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ghjz != null" >
+        	#{ghjz,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.MsGhks" >
+    update  MS_GHKS
+    <set >
+    	<if test="ksmc != null" >
+        	  KSMC=#{ksmc,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ghlb != null" >
+        	  GHLB=#{ghlb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="pydm != null" >
+        	  PYDM=#{pydm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="wbdm != null" >
+        	  WBDM=#{wbdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="jxdm != null" >
+        	  JXDM=#{jxdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="qtdm != null" >
+        	  QTDM=#{qtdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ghf != null" >
+        	  GHF=#{ghf,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="zlf != null" >
+        	  ZLF=#{zlf,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="zjmz != null" >
+        	  ZJMZ=#{zjmz,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="ghxe != null" >
+        	  GHXE=#{ghxe,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="ygrs != null" >
+        	  YGRS=#{ygrs,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="yyrs != null" >
+        	  YYRS=#{yyrs,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="ghrq != null" >
+        	  GHRQ=#{ghrq,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="mzks != null" >
+        	  MZKS=#{mzks,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="tjpb != null" >
+        	  TJPB=#{tjpb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="tjf != null" >
+        	  TJF=#{tjf,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="mzlb != null" >
+        	  MZLB=#{mzlb,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="jzxh != null" >
+        	  JZXH=#{jzxh,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="icbc != null" >
+        	  ICBC=#{icbc,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="jrks != null" >
+        	  JRKS=#{jrks,jdbcType=NUMERIC} , 
+       </if>
+    	<if test="ksdd != null" >
+        	  KSDD=#{ksdd,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="xybz != null" >
+        	  XYBZ=#{xybz,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ybksdm != null" >
+        	  YBKSDM=#{ybksdm,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ybksmc != null" >
+        	  YBKSMC=#{ybksmc,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="ghjz != null" >
+        	  GHJZ=#{ghjz,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        KSDM = #{ksdm,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.MsGhks" >
+    update MS_GHKS
+    set 
+        	  KSMC=#{ksmc,jdbcType=VARCHAR} , 
+        	  GHLB=#{ghlb,jdbcType=NUMERIC} , 
+        	  PYDM=#{pydm,jdbcType=VARCHAR} , 
+        	  WBDM=#{wbdm,jdbcType=VARCHAR} , 
+        	  JXDM=#{jxdm,jdbcType=VARCHAR} , 
+        	  QTDM=#{qtdm,jdbcType=VARCHAR} , 
+        	  GHF=#{ghf,jdbcType=NUMERIC} , 
+        	  ZLF=#{zlf,jdbcType=NUMERIC} , 
+        	  ZJMZ=#{zjmz,jdbcType=NUMERIC} , 
+        	  GHXE=#{ghxe,jdbcType=NUMERIC} , 
+        	  YGRS=#{ygrs,jdbcType=NUMERIC} , 
+        	  YYRS=#{yyrs,jdbcType=NUMERIC} , 
+        	  GHRQ=#{ghrq,jdbcType=TIMESTAMP} , 
+        	  MZKS=#{mzks,jdbcType=NUMERIC} , 
+        	  TJPB=#{tjpb,jdbcType=NUMERIC} , 
+        	  TJF=#{tjf,jdbcType=NUMERIC} , 
+        	  MZLB=#{mzlb,jdbcType=NUMERIC} , 
+        	  JZXH=#{jzxh,jdbcType=NUMERIC} , 
+        	  ICBC=#{icbc,jdbcType=NUMERIC} , 
+        	  JRKS=#{jrks,jdbcType=NUMERIC} , 
+        	  KSDD=#{ksdd,jdbcType=VARCHAR} , 
+        	  XYBZ=#{xybz,jdbcType=VARCHAR} , 
+        	  YBKSDM=#{ybksdm,jdbcType=VARCHAR} , 
+        	  YBKSMC=#{ybksmc,jdbcType=VARCHAR} , 
+        	  GHJZ=#{ghjz,jdbcType=VARCHAR}  
+      where  
+		        KSDM = #{ksdm,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.MsGhks" >
+    select 
+    <include refid="Base_Column_List" />
+    from MS_GHKS  
+   <where>  
+  	  	<if test="ksdm != null" >
+  	 		        KSDM  = #{ksdm}  
+  	  	</if>
+  	  	<if test="ksmc != null" >
+  	 		   and    KSMC  = #{ksmc}  
+  	  	</if>
+  	  	<if test="ghlb != null" >
+  	 		   and    GHLB  = #{ghlb}  
+  	  	</if>
+  	  	<if test="pydm != null" >
+  	 		   and    PYDM  = #{pydm}  
+  	  	</if>
+  	  	<if test="wbdm != null" >
+  	 		   and    WBDM  = #{wbdm}  
+  	  	</if>
+  	  	<if test="jxdm != null" >
+  	 		   and    JXDM  = #{jxdm}  
+  	  	</if>
+  	  	<if test="qtdm != null" >
+  	 		   and    QTDM  = #{qtdm}  
+  	  	</if>
+  	  	<if test="ghf != null" >
+  	 		   and    GHF  = #{ghf}  
+  	  	</if>
+  	  	<if test="zlf != null" >
+  	 		   and    ZLF  = #{zlf}  
+  	  	</if>
+  	  	<if test="zjmz != null" >
+  	  		<if test="zjmz ==1" >
+  	 		   and    ZJMZ  = #{zjmz} and  KSMC not like '特需%'
+  	  		</if>
+  	  		<if test="zjmz ==0" > 
+  	 		   and    ZJMZ  = #{zjmz}     and  KSMC not like '节假日%'
+  	  		</if>
+  	  		<if test="zjmz ==3" >
+  	 		    and  KSMC   like '特需%'
+  	  		</if>
+  	  		<if test="zjmz ==4" >
+  	 		    and  KSMC   like '节假日%'
+  	  		</if>
+  	  	</if>
+  	  	<if test="ghxe != null" >
+  	 		   and    GHXE  = #{ghxe}  
+  	  	</if>
+  	  	<if test="ygrs != null" >
+  	 		   and    YGRS  = #{ygrs}  
+  	  	</if>
+  	  	<if test="yyrs != null" >
+  	 		   and    YYRS  = #{yyrs}  
+  	  	</if>
+  	  	<if test="ghrq != null" >
+  	 		   and    GHRQ  = #{ghrq}  
+  	  	</if>
+  	  	<if test="mzks != null" >
+  	 		   and    MZKS  = #{mzks}  
+  	  	</if>
+  	  	<if test="tjpb != null" >
+  	 		   and    TJPB  = #{tjpb}  
+  	  	</if>
+  	  	<if test="tjf != null" >
+  	 		   and    TJF  = #{tjf}  
+  	  	</if>
+  	  	<if test="mzlb != null" >
+  	 		   and    MZLB  = #{mzlb}  
+  	  	</if>
+  	  	<if test="jzxh != null" >
+  	 		   and    JZXH  = #{jzxh}  
+  	  	</if>
+  	  	<if test="icbc != null" >
+  	 		   and    ICBC  = #{icbc}  
+  	  	</if>
+  	  	<if test="jrks != null" >
+  	 		   and    JRKS  = #{jrks}  
+  	  	</if>
+  	  	<if test="ksdd != null" >
+  	 		   and    KSDD  = #{ksdd}  
+  	  	</if>
+  	  	<if test="xybz != null" >
+  	 		   and    XYBZ  = #{xybz}  
+  	  	</if>
+  	  	<if test="ybksdm != null" >
+  	 		   and    YBKSDM  = #{ybksdm}  
+  	  	</if>
+  	  	<if test="ybksmc != null" >
+  	 		   and    YBKSMC  = #{ybksmc}  
+  	  	</if>
+  	  	<if test="ghjz != null" >
+  	 		   and    GHJZ  = #{ghjz}  
+  	  	</if>
+    </where>   
+    order by cast(jxdm as int);  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.MsGhks">  
+    DELETE FROM MS_GHKS  
+      <where>  
+  	  	<if test="ksdm != null" >
+  	 		       KSDM  = #{ksdm}  
+  	  	</if>
+  	  	<if test="ksmc != null" >
+  	 		   and    KSMC  = #{ksmc}  
+  	  	</if>
+  	  	<if test="ghlb != null" >
+  	 		   and    GHLB  = #{ghlb}  
+  	  	</if>
+  	  	<if test="pydm != null" >
+  	 		   and    PYDM  = #{pydm}  
+  	  	</if>
+  	  	<if test="wbdm != null" >
+  	 		   and    WBDM  = #{wbdm}  
+  	  	</if>
+  	  	<if test="jxdm != null" >
+  	 		   and    JXDM  = #{jxdm}  
+  	  	</if>
+  	  	<if test="qtdm != null" >
+  	 		   and    QTDM  = #{qtdm}  
+  	  	</if>
+  	  	<if test="ghf != null" >
+  	 		   and    GHF  = #{ghf}  
+  	  	</if>
+  	  	<if test="zlf != null" >
+  	 		   and    ZLF  = #{zlf}  
+  	  	</if>
+  	  	<if test="zjmz != null" >
+  	 		   and    ZJMZ  = #{zjmz}  
+  	  	</if>
+  	  	<if test="ghxe != null" >
+  	 		   and    GHXE  = #{ghxe}  
+  	  	</if>
+  	  	<if test="ygrs != null" >
+  	 		   and    YGRS  = #{ygrs}  
+  	  	</if>
+  	  	<if test="yyrs != null" >
+  	 		   and    YYRS  = #{yyrs}  
+  	  	</if>
+  	  	<if test="ghrq != null" >
+  	 		   and    GHRQ  = #{ghrq}  
+  	  	</if>
+  	  	<if test="mzks != null" >
+  	 		   and    MZKS  = #{mzks}  
+  	  	</if>
+  	  	<if test="tjpb != null" >
+  	 		   and    TJPB  = #{tjpb}  
+  	  	</if>
+  	  	<if test="tjf != null" >
+  	 		   and    TJF  = #{tjf}  
+  	  	</if>
+  	  	<if test="mzlb != null" >
+  	 		   and    MZLB  = #{mzlb}  
+  	  	</if>
+  	  	<if test="jzxh != null" >
+  	 		   and    JZXH  = #{jzxh}  
+  	  	</if>
+  	  	<if test="icbc != null" >
+  	 		   and    ICBC  = #{icbc}  
+  	  	</if>
+  	  	<if test="jrks != null" >
+  	 		   and    JRKS  = #{jrks}  
+  	  	</if>
+  	  	<if test="ksdd != null" >
+  	 		   and    KSDD  = #{ksdd}  
+  	  	</if>
+  	  	<if test="xybz != null" >
+  	 		   and    XYBZ  = #{xybz}  
+  	  	</if>
+  	  	<if test="ybksdm != null" >
+  	 		   and    YBKSDM  = #{ybksdm}  
+  	  	</if>
+  	  	<if test="ybksmc != null" >
+  	 		   and    YBKSMC  = #{ybksmc}  
+  	  	</if>
+  	  	<if test="ghjz != null" >
+  	 		   and    GHJZ  = #{ghjz}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  MS_GHKS WHERE 
+		        KSDM 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.MsGhks" >
+select count(*) from MS_GHKS
+ <where>  
+  	  	<if test="ksdm != null" >
+  	 		       KSDM  = #{ksdm}  
+  	  	</if>
+  	  	<if test="ksmc != null" >
+  	 		   and    KSMC  = #{ksmc}  
+  	  	</if>
+  	  	<if test="ghlb != null" >
+  	 		   and    GHLB  = #{ghlb}  
+  	  	</if>
+  	  	<if test="pydm != null" >
+  	 		   and    PYDM  = #{pydm}  
+  	  	</if>
+  	  	<if test="wbdm != null" >
+  	 		   and    WBDM  = #{wbdm}  
+  	  	</if>
+  	  	<if test="jxdm != null" >
+  	 		   and    JXDM  = #{jxdm}  
+  	  	</if>
+  	  	<if test="qtdm != null" >
+  	 		   and    QTDM  = #{qtdm}  
+  	  	</if>
+  	  	<if test="ghf != null" >
+  	 		   and    GHF  = #{ghf}  
+  	  	</if>
+  	  	<if test="zlf != null" >
+  	 		   and    ZLF  = #{zlf}  
+  	  	</if>
+  	  	<if test="zjmz != null" >
+  	 		   and    ZJMZ  = #{zjmz}  
+  	  	</if>
+  	  	<if test="ghxe != null" >
+  	 		   and    GHXE  = #{ghxe}  
+  	  	</if>
+  	  	<if test="ygrs != null" >
+  	 		   and    YGRS  = #{ygrs}  
+  	  	</if>
+  	  	<if test="yyrs != null" >
+  	 		   and    YYRS  = #{yyrs}  
+  	  	</if>
+  	  	<if test="ghrq != null" >
+  	 		   and    GHRQ  = #{ghrq}  
+  	  	</if>
+  	  	<if test="mzks != null" >
+  	 		   and    MZKS  = #{mzks}  
+  	  	</if>
+  	  	<if test="tjpb != null" >
+  	 		   and    TJPB  = #{tjpb}  
+  	  	</if>
+  	  	<if test="tjf != null" >
+  	 		   and    TJF  = #{tjf}  
+  	  	</if>
+  	  	<if test="mzlb != null" >
+  	 		   and    MZLB  = #{mzlb}  
+  	  	</if>
+  	  	<if test="jzxh != null" >
+  	 		   and    JZXH  = #{jzxh}  
+  	  	</if>
+  	  	<if test="icbc != null" >
+  	 		   and    ICBC  = #{icbc}  
+  	  	</if>
+  	  	<if test="jrks != null" >
+  	 		   and    JRKS  = #{jrks}  
+  	  	</if>
+  	  	<if test="ksdd != null" >
+  	 		   and    KSDD  = #{ksdd}  
+  	  	</if>
+  	  	<if test="xybz != null" >
+  	 		   and    XYBZ  = #{xybz}  
+  	  	</if>
+  	  	<if test="ybksdm != null" >
+  	 		   and    YBKSDM  = #{ybksdm}  
+  	  	</if>
+  	  	<if test="ybksmc != null" >
+  	 		   and    YBKSMC  = #{ybksmc}  
+  	  	</if>
+  	  	<if test="ghjz != null" >
+  	 		   and    GHJZ  = #{ghjz}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from MS_GHKS 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from MS_GHKS where    
+     #{0}   LIKE '' + #{0} + '%'     
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.MsGhks" >
+    select 
+    <include refid="Base_Column_List" />
+    from MS_GHKS
+      <where>  
+		 
+  	  	</where>
+	</select>
+	
+</mapper>

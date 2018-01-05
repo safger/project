@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.odao.VlisAppResultMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.VlisAppResult" >
+        <result property="testid" column="TESTID"  jdbcType="VARCHAR" />
+        <result property="englishname" column="ENGLISHNAME"  jdbcType="VARCHAR" />
+        <result property="reportItem" column="REPORT_ITEM"  jdbcType="VARCHAR" />
+        <result property="status" column="STATUS"  jdbcType="VARCHAR" />
+        <result property="important" column="IMPORTANT"  jdbcType="DECIMAL" />
+        <result property="printord" column="PRINTORD"  jdbcType="DECIMAL" />
+        <result property="ckfw" column="CKFW"  jdbcType="VARCHAR" />
+        <result property="units" column="UNITS"  jdbcType="VARCHAR" />
+        <result property="result" column="RESULT"  jdbcType="VARCHAR" />
+        <result property="sampleno" column="SAMPLENO"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         TESTID ,
+         ENGLISHNAME ,
+         REPORT_ITEM ,
+         STATUS ,
+         IMPORTANT ,
+         PRINTORD ,
+         CKFW ,
+         UNITS ,
+         RESULT ,
+         SAMPLENO 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from V_LIS_APP_RESULT
+		      where   </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from V_LIS_APP_RESULT
+    	where   </delete>
+  <insert id="insert" parameterType="com.sn.entity.VlisAppResult" >
+    
+         insert into V_LIS_APP_RESULT ( 
+         		TESTID , 
+         	          		ENGLISHNAME , 
+         	          		REPORT_ITEM , 
+         	          		STATUS , 
+         	          		IMPORTANT , 
+         	          		PRINTORD , 
+         	          		CKFW , 
+         	          		UNITS , 
+         	          		RESULT , 
+         	          		SAMPLENO  
+         	 )
+   	 	values (
+   	 		#{testid,jdbcType=VARCHAR} , 
+   	 	   	 		#{englishname,jdbcType=VARCHAR} , 
+   	 	   	 		#{reportItem,jdbcType=VARCHAR} , 
+   	 	   	 		#{status,jdbcType=VARCHAR} , 
+   	 	   	 		#{important,jdbcType=DECIMAL} , 
+   	 	   	 		#{printord,jdbcType=DECIMAL} , 
+   	 	   	 		#{ckfw,jdbcType=VARCHAR} , 
+   	 	   	 		#{units,jdbcType=VARCHAR} , 
+   	 	   	 		#{result,jdbcType=VARCHAR} , 
+   	 	   	 		#{sampleno,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.VlisAppResult">
+  	  insert into  V_LIS_APP_RESULT
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="testid != null" >
+  	 	  TESTID ,  
+  	  	</if>
+  	  	<if test="englishname != null" >
+  	 	  ENGLISHNAME ,  
+  	  	</if>
+  	  	<if test="reportItem != null" >
+  	 	  REPORT_ITEM ,  
+  	  	</if>
+  	  	<if test="status != null" >
+  	 	  STATUS ,  
+  	  	</if>
+  	  	<if test="important != null" >
+  	 	  IMPORTANT ,  
+  	  	</if>
+  	  	<if test="printord != null" >
+  	 	  PRINTORD ,  
+  	  	</if>
+  	  	<if test="ckfw != null" >
+  	 	  CKFW ,  
+  	  	</if>
+  	  	<if test="units != null" >
+  	 	  UNITS ,  
+  	  	</if>
+  	  	<if test="result != null" >
+  	 	  RESULT ,  
+  	  	</if>
+  	  	<if test="sampleno != null" >
+  	 	  SAMPLENO   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="testid != null" >
+        	#{testid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="englishname != null" >
+        	#{englishname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="reportItem != null" >
+        	#{reportItem,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="status != null" >
+        	#{status,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="important != null" >
+        	#{important,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="printord != null" >
+        	#{printord,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="ckfw != null" >
+        	#{ckfw,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="units != null" >
+        	#{units,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="result != null" >
+        	#{result,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sampleno != null" >
+        	#{sampleno,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.VlisAppResult" >
+    update  V_LIS_APP_RESULT
+    <set >
+    	<if test="testid != null" >
+        	  TESTID=#{testid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="englishname != null" >
+        	  ENGLISHNAME=#{englishname,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="reportItem != null" >
+        	  REPORT_ITEM=#{reportItem,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="status != null" >
+        	  STATUS=#{status,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="important != null" >
+        	  IMPORTANT=#{important,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="printord != null" >
+        	  PRINTORD=#{printord,jdbcType=DECIMAL} , 
+       </if>
+    	<if test="ckfw != null" >
+        	  CKFW=#{ckfw,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="units != null" >
+        	  UNITS=#{units,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="result != null" >
+        	  RESULT=#{result,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="sampleno != null" >
+        	  SAMPLENO=#{sampleno,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.VlisAppResult" >
+    update V_LIS_APP_RESULT
+    set 
+        	  TESTID=#{testid,jdbcType=VARCHAR} , 
+        	  ENGLISHNAME=#{englishname,jdbcType=VARCHAR} , 
+        	  REPORT_ITEM=#{reportItem,jdbcType=VARCHAR} , 
+        	  STATUS=#{status,jdbcType=VARCHAR} , 
+        	  IMPORTANT=#{important,jdbcType=DECIMAL} , 
+        	  PRINTORD=#{printord,jdbcType=DECIMAL} , 
+        	  CKFW=#{ckfw,jdbcType=VARCHAR} , 
+        	  UNITS=#{units,jdbcType=VARCHAR} , 
+        	  RESULT=#{result,jdbcType=VARCHAR} , 
+        	  SAMPLENO=#{sampleno,jdbcType=VARCHAR}  
+      where  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.VlisAppResult" >
+    select 
+    <include refid="Base_Column_List" />
+    from V_LIS_APP_RESULT
+   <where>  
+  	  	<if test="testid != null" >
+  	 		       TESTID  = #{testid}  
+  	  	</if>
+  	  	<if test="englishname != null" >
+  	 		   and    ENGLISHNAME  = #{englishname}  
+  	  	</if>
+  	  	<if test="reportItem != null" >
+  	 		   and    REPORT_ITEM  = #{reportItem}  
+  	  	</if>
+  	  	<if test="status != null" >
+  	 		   and    STATUS  = #{status}  
+  	  	</if>
+  	  	<if test="important != null" >
+  	 		   and    IMPORTANT  = #{important}  
+  	  	</if>
+  	  	<if test="printord != null" >
+  	 		   and    PRINTORD  = #{printord}  
+  	  	</if>
+  	  	<if test="ckfw != null" >
+  	 		   and    CKFW  = #{ckfw}  
+  	  	</if>
+  	  	<if test="units != null" >
+  	 		   and    UNITS  = #{units}  
+  	  	</if>
+  	  	<if test="result != null" >
+  	 		   and    RESULT  = #{result}  
+  	  	</if>
+  	  	<if test="sampleno != null" >
+  	 		   and    SAMPLENO  = #{sampleno}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.VlisAppResult">  
+    DELETE FROM V_LIS_APP_RESULT  
+      <where>  
+  	  	<if test="testid != null" >
+  	 		       TESTID  = #{testid}  
+  	  	</if>
+  	  	<if test="englishname != null" >
+  	 		   and    ENGLISHNAME  = #{englishname}  
+  	  	</if>
+  	  	<if test="reportItem != null" >
+  	 		   and    REPORT_ITEM  = #{reportItem}  
+  	  	</if>
+  	  	<if test="status != null" >
+  	 		   and    STATUS  = #{status}  
+  	  	</if>
+  	  	<if test="important != null" >
+  	 		   and    IMPORTANT  = #{important}  
+  	  	</if>
+  	  	<if test="printord != null" >
+  	 		   and    PRINTORD  = #{printord}  
+  	  	</if>
+  	  	<if test="ckfw != null" >
+  	 		   and    CKFW  = #{ckfw}  
+  	  	</if>
+  	  	<if test="units != null" >
+  	 		   and    UNITS  = #{units}  
+  	  	</if>
+  	  	<if test="result != null" >
+  	 		   and    RESULT  = #{result}  
+  	  	</if>
+  	  	<if test="sampleno != null" >
+  	 		   and    SAMPLENO  = #{sampleno}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  V_LIS_APP_RESULT WHERE 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.VlisAppResult" >
+select count(*) from V_LIS_APP_RESULT
+ <where>  
+  	  	<if test="testid != null" >
+  	 		       TESTID  = #{testid}  
+  	  	</if>
+  	  	<if test="englishname != null" >
+  	 		   and    ENGLISHNAME  = #{englishname}  
+  	  	</if>
+  	  	<if test="reportItem != null" >
+  	 		   and    REPORT_ITEM  = #{reportItem}  
+  	  	</if>
+  	  	<if test="status != null" >
+  	 		   and    STATUS  = #{status}  
+  	  	</if>
+  	  	<if test="important != null" >
+  	 		   and    IMPORTANT  = #{important}  
+  	  	</if>
+  	  	<if test="printord != null" >
+  	 		   and    PRINTORD  = #{printord}  
+  	  	</if>
+  	  	<if test="ckfw != null" >
+  	 		   and    CKFW  = #{ckfw}  
+  	  	</if>
+  	  	<if test="units != null" >
+  	 		   and    UNITS  = #{units}  
+  	  	</if>
+  	  	<if test="result != null" >
+  	 		   and    RESULT  = #{result}  
+  	  	</if>
+  	  	<if test="sampleno != null" >
+  	 		   and    SAMPLENO  = #{sampleno}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"   parameterType="com.sn.entity.VlisAppResult" >
+select * from V_LIS_APP_RESULT order by #{order}
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from V_LIS_APP_RESULT where  
+     #{0}   LIKE CONCAT('%','#{1}','%' ) 
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.VlisAppResult" >
+    select 
+    <include refid="Base_Column_List" />
+    from V_LIS_APP_RESULT
+      <where>  
+		 
+  	  	</where>
+	</select>
+	
+</mapper>

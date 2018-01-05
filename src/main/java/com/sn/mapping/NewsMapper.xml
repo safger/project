@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.NewsMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.News" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="title" column="TITLE"  jdbcType="VARCHAR" />
+        <result property="content" column="CONTENT"  jdbcType="LONGVARCHAR" />
+        <result property="iurl" column="IURL"  jdbcType="VARCHAR" />
+        <result property="createdate" column="createdate"  jdbcType="TIMESTAMP" />
+        <result property="announcer" column="announcer"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         TITLE ,
+         CONTENT ,
+         IURL ,
+         createdate ,
+         announcer 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from bu_news
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bu_news
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.News" >
+    
+         insert into bu_news ( 
+         		FUID , 
+         	          		TITLE , 
+         	          		CONTENT , 
+         	          		IURL , 
+         	          		createdate , 
+         	          		announcer  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{title,jdbcType=VARCHAR} , 
+   	 	   	 		#{content,jdbcType=LONGVARCHAR} , 
+   	 	   	 		#{iurl,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{announcer,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.News">
+  	  insert into  bu_news
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="title != null" >
+  	 	  TITLE ,  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 	  CONTENT ,  
+  	  	</if>
+  	  	<if test="iurl != null" >
+  	 	  IURL ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  createdate ,  
+  	  	</if>
+  	  	<if test="announcer != null" >
+  	 	  announcer   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="title != null" >
+        	#{title,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="content != null" >
+        	#{content,jdbcType=LONGVARCHAR} , 
+       </if>
+    	<if test="iurl != null" >
+        	#{iurl,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="announcer != null" >
+        	#{announcer,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.News" >
+    update  bu_news
+    <set >
+    	<if test="title != null" >
+        	  TITLE=#{title,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="content != null" >
+        	  CONTENT=#{content,jdbcType=LONGVARCHAR} , 
+       </if>
+    	<if test="iurl != null" >
+        	  IURL=#{iurl,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  createdate=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="announcer != null" >
+        	  announcer=#{announcer,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.News" >
+    update bu_news
+    set 
+        	  TITLE=#{title,jdbcType=VARCHAR} , 
+        	  CONTENT=#{content,jdbcType=LONGVARCHAR} , 
+        	  IURL=#{iurl,jdbcType=VARCHAR} , 
+        	  createdate=#{createdate,jdbcType=TIMESTAMP} , 
+        	  announcer=#{announcer,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.News" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_news
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="title != null" >
+  	 		   and    TITLE  = #{title}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    CONTENT  = #{content}  
+  	  	</if>
+  	  	<if test="iurl != null" >
+  	 		   and    IURL  = #{iurl}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="announcer != null" >
+  	 		   and    announcer  = #{announcer}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.News">  
+    DELETE FROM bu_news  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="title != null" >
+  	 		   and    TITLE  = #{title}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    CONTENT  = #{content}  
+  	  	</if>
+  	  	<if test="iurl != null" >
+  	 		   and    IURL  = #{iurl}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="announcer != null" >
+  	 		   and    announcer  = #{announcer}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  bu_news WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.News" >
+select count(*) from bu_news
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="title != null" >
+  	 		   and    TITLE  = #{title}  
+  	  	</if>
+  	  	<if test="content != null" >
+  	 		   and    CONTENT  = #{content}  
+  	  	</if>
+  	  	<if test="iurl != null" >
+  	 		   and    IURL  = #{iurl}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="announcer != null" >
+  	 		   and    announcer  = #{announcer}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from bu_news 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from bu_news where  
+     #{0}   LIKE CONCAT('%','#{1}','%' ) 
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.News" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_news
+      <where>  
+		 	<if test="title != null" >
+  	 		        TITLE LIKE CONCAT('%','${title}','%' ) 
+  	  	</if>
+  	  	</where>
+	</select>
+	
+</mapper>

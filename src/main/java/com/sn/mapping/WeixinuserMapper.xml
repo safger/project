@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sn.dao.WeixinuserMapper" >
+  <resultMap id="BaseResultMap" type="com.sn.entity.Weixinuser" >
+    <id column="Fuid" property="fuid" jdbcType="VARCHAR" />
+        <result property="name" column="NAME"  jdbcType="VARCHAR" />
+        <result property="phone" column="phone"  jdbcType="VARCHAR" />
+        <result property="createdate" column="createdate"  jdbcType="TIMESTAMP" />
+        <result property="address" column="address"  jdbcType="VARCHAR" />
+        <result property="weixinid" column="weixinid"  jdbcType="VARCHAR" />
+        <result property="area" column="area"  jdbcType="VARCHAR" />
+		   
+  </resultMap>
+  <sql id="Base_Column_List" >
+         FUID ,
+         NAME ,
+         phone ,
+         createdate ,
+         address ,
+         weixinid ,
+         area 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      SELECT  <include refid="Base_Column_List" />
+	    from bu_weixinuser
+		      where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bu_weixinuser
+    	where 
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </delete>
+  <insert id="insert" parameterType="com.sn.entity.Weixinuser" >
+    
+         insert into bu_weixinuser ( 
+         		FUID , 
+         	          		NAME , 
+         	          		phone , 
+         	          		createdate , 
+         	          		address , 
+         	          		weixinid , 
+         	          		area  
+         	 )
+   	 	values (
+   	 		#{fuid,jdbcType=VARCHAR} , 
+   	 	   	 		#{name,jdbcType=VARCHAR} , 
+   	 	   	 		#{phone,jdbcType=VARCHAR} , 
+   	 	   	 		#{createdate,jdbcType=TIMESTAMP} , 
+   	 	   	 		#{address,jdbcType=VARCHAR} , 
+   	 	   	 		#{weixinid,jdbcType=VARCHAR} , 
+   	 	   	 		#{area,jdbcType=VARCHAR}  
+   	 	)
+  </insert>
+  
+      
+  
+   <insert id="insertSelective" parameterType="com.sn.entity.Weixinuser">
+  	  insert into  bu_weixinuser
+  	  
+  	   <trim prefix="(" suffix=")" suffixOverrides="," >
+  	   
+  	  	<if test="fuid != null" >
+  	 	  FUID ,  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 	  NAME ,  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 	  phone ,  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 	  createdate ,  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 	  address ,  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 	  weixinid ,  
+  	  	</if>
+  	  	<if test="area != null" >
+  	 	  area   
+  	  	</if>
+  	    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+    	<if test="fuid != null" >
+        	#{fuid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="name != null" >
+        	#{name,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="phone != null" >
+        	#{phone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="address != null" >
+        	#{address,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="weixinid != null" >
+        	#{weixinid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="area != null" >
+        	#{area,jdbcType=VARCHAR}  
+       </if>
+       </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sn.entity.Weixinuser" >
+    update  bu_weixinuser
+    <set >
+    	<if test="name != null" >
+        	  NAME=#{name,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="phone != null" >
+        	  phone=#{phone,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="createdate != null" >
+        	  createdate=#{createdate,jdbcType=TIMESTAMP} , 
+       </if>
+    	<if test="address != null" >
+        	  address=#{address,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="weixinid != null" >
+        	  weixinid=#{weixinid,jdbcType=VARCHAR} , 
+       </if>
+    	<if test="area != null" >
+        	  area=#{area,jdbcType=VARCHAR}  
+       </if>
+ 	 </set>
+    where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+		 </update>        
+		        
+<update id="updateByPrimaryKey" parameterType="com.sn.entity.Weixinuser" >
+    update bu_weixinuser
+    set 
+        	  NAME=#{name,jdbcType=VARCHAR} , 
+        	  phone=#{phone,jdbcType=VARCHAR} , 
+        	  createdate=#{createdate,jdbcType=TIMESTAMP} , 
+        	  address=#{address,jdbcType=VARCHAR} , 
+        	  weixinid=#{weixinid,jdbcType=VARCHAR} , 
+        	  area=#{area,jdbcType=VARCHAR}  
+      where  
+		        FUID = #{fuid,jdbcType=VARCHAR}  
+  </update>
+  
+  <select id="selectByColum" resultMap="BaseResultMap" parameterType="com.sn.entity.Weixinuser" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_weixinuser
+   <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    phone  = #{phone}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 		   and    address  = #{address}  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 		   and    weixinid  = #{weixinid}  
+  	  	</if>
+  	  	<if test="area != null" >
+  	 		   and    area  = #{area}  
+  	  	</if>
+    </where>  
+  </select>
+  
+  <delete id="deleteByColum"  parameterType="com.sn.entity.Weixinuser">  
+    DELETE FROM bu_weixinuser  
+      <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    phone  = #{phone}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 		   and    address  = #{address}  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 		   and    weixinid  = #{weixinid}  
+  	  	</if>
+  	  	<if test="area != null" >
+  	 		   and    area  = #{area}  
+  	  	</if>
+  	  </where>  
+</delete>
+
+<delete id="deleteByByPrimaryKeys" parameterType="java.util.List">  
+    DELETE FROM  bu_weixinuser WHERE 
+		        FUID 
+     IN  
+    <foreach collection="list" item="item" open="(" separator="," close=")">   
+        #{item}  
+    </foreach>  
+</delete>
+
+<select id="countByColum" resultType="java.lang.Integer" parameterType="com.sn.entity.Weixinuser" >
+select count(*) from bu_weixinuser
+ <where>  
+  	  	<if test="fuid != null" >
+  	 		       FUID  = #{fuid}  
+  	  	</if>
+  	  	<if test="name != null" >
+  	 		   and    NAME  = #{name}  
+  	  	</if>
+  	  	<if test="phone != null" >
+  	 		   and    phone  = #{phone}  
+  	  	</if>
+  	  	<if test="createdate != null" >
+  	 		   and    createdate  = #{createdate}  
+  	  	</if>
+  	  	<if test="address != null" >
+  	 		   and    address  = #{address}  
+  	  	</if>
+  	  	<if test="weixinid != null" >
+  	 		   and    weixinid  = #{weixinid}  
+  	  	</if>
+  	  	<if test="area != null" >
+  	 		   and    area  = #{area}  
+  	  	</if>
+    </where>  
+</select>
+
+<select id="selectAll"  resultMap="BaseResultMap"  >
+select * from bu_weixinuser 
+</select>
+
+  <!--   自定义方法区域 -->
+  
+  <select  id="selectLikeColum"  resultMap="BaseResultMap"   >
+		select  
+		 <include refid="Base_Column_List" />
+  	  from bu_weixinuser where  
+     #{0}   LIKE CONCAT('%','#{1}','%' ) 
+	</select>
+	
+	<select id="selectByCustom" resultMap="BaseResultMap" parameterType="com.sn.entity.Weixinuser" >
+    select 
+    <include refid="Base_Column_List" />
+    from bu_weixinuser
+      <where>  
+		 
+  	  	</where>
+	</select>
+	
+</mapper>
