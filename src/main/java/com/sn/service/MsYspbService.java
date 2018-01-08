@@ -64,5 +64,8 @@ public interface  MsYspbService{
 	public int countByColum(MsYspb record);
 	
 	public List<MsYspb> selectAll(String order);
-	
+
+	public  List<MsYspb> selectByYspb(MsYspb msYspb);
+
+	public  List<MsYspb> selectByYspbMx(MsYspb msYspb);
 }

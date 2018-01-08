@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sn.common.TimeUtils;
+import com.sn.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -30,17 +33,6 @@ import com.sn.controller.weixin.base.GetAccessToken;
 import com.sn.controller.weixin.base.ValidateCode;
 import com.sn.controller.weixin.base.WeixinAction;
 import com.sn.controller.weixin.base.userAppidReturn;
-import com.sn.entity.Gloginerror;
-import com.sn.entity.Greg;
-import com.sn.entity.Guser;
-import com.sn.entity.GyDmzd;
-import com.sn.entity.Identity;
-import com.sn.entity.MsGhks;
-import com.sn.entity.MsYspb;
-import com.sn.entity.MsYspbMx;
-import com.sn.entity.MsYyda;
-import com.sn.entity.Smsrecord;
-import com.sn.entity.Ygdm;
 import com.sn.service.GloginerrorService;
 import com.sn.service.GregService;
 import com.sn.service.GuserService;
@@ -922,5 +914,47 @@ public class GuserController {
 			WeixinAction.sendCancel(greg.getWeixinid(), greg);
 		} 
 		return "redirect:/weixin/guser/showMyReservation.html";
+	}
+
+	/**
+	 * @deprecated  显示医生排班页
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("showPb")
+	public String showPb(Integer timeint,Map<String, Object> model) {
+		timeint=timeint==null?0:timeint;
+		MsYspb msYspb=new MsYspb();
+		msYspb.setGzrq(TimeUtils.addDay(new Date(),timeint));
+		msYspb.setZjmz(1);
+		List<MsYspb> pbks_zj=msYspbService.selectByYspb(msYspb);
+		List<MsYspb> msYspbs_listzj=msYspbService.selectByYspbMx(msYspb);
+		msYspb.setZjmz(0);
+		List<MsYspb> pbks_pt=msYspbService.selectByYspb(msYspb);
+		List<MsYspb> msYspbs_listpt=msYspbService.selectByYspbMx(msYspb);
+		//时间处理
+		Date date=new Date();
+		SimpleDateFormat dateFm = new SimpleDateFormat("MM-dd");
+		List<Time> t_list=new ArrayList<Time>();
+		for(int a=0;a<5;a++){
+			Time t=new Time();
+			Date d=TimeUtils.addDay(date,a);
+			t.setDate(date);
+			t.setDateString(dateFm.format(d));
+			t.setWeek(TimeUtils.getWeekOfDate(d));
+			t.setValue(a);
+			if(a==timeint){
+				t.setIselect(1);
+			}else{
+				t.setIselect(0);
+			}
+			t_list.add(t);
+		}
+		model.put("time",t_list);
+		model.put("pbks_zj",pbks_zj);
+		model.put("pbks_pt",pbks_pt);
+		model.put("msYspbs_listzj",msYspbs_listzj);
+		model.put("msYspbs_listpt",msYspbs_listpt);
+		return "/weixin/schedule";
 	}
 }

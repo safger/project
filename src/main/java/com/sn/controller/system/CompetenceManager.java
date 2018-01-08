@@ -80,7 +80,7 @@ public class CompetenceManager extends HttpServlet {
 		context = WebApplicationContextUtils.getWebApplicationContext(servlet);
 		System.out.println("开始缓存时间：" + new Date());
  
-		this.weixin(); 
+		this.weixin();
   
 		try { 
 			this.deleteCalidatesImg(servlet);

@@ -261,4 +261,23 @@ public class TimeUtils {
 		// System.out.println(sdf.format(calendar.getTime()));// 输出格式化的日期
 		return calendar.getTime();
 	}
+
+	public static String getWeekOfDate(Date dt) {
+		String[] weekDays = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dt);
+
+		int w = cal.get(Calendar.DAY_OF_WEEK) - 1;
+		if (w < 0)
+			w = 0;
+
+		return weekDays[w];
+	}
+
+	public static  Date addDay(Date t,int d){
+		Calendar cal = Calendar.getInstance();//使用默认时区和语言环境获得一个日历。
+		cal.setTime(t);
+		cal.add(Calendar.DAY_OF_MONTH, +d);//取当前日期的后一天.
+		return cal.getTime();
+	}
 }
