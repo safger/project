@@ -1,9 +1,10 @@
 package com.sn.common;
 
-import java.util.Date;
+import com.sn.controller.system.CompetenceManager;
+
+import java.util.Timer;
 import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.concurrent.*;
 
 public class UUIDCreater {
 
@@ -16,6 +17,5 @@ public class UUIDCreater {
 	}
 
 	public static void main(String[] args) throws Exception {
-		System.out.println(TimeUtils.addDay(new Date(),1));
 	}
 }

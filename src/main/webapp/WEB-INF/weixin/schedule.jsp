@@ -19,7 +19,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta content="email=no" name="format-detection" />
     <meta name="x5-fullscreen" content="true">
-    <title>成功</title>
+    <title>科室排班</title>
     <style>
         body,
         div,
@@ -126,7 +126,7 @@
     <table border="1" width="100%" class="bgtable">
         <tr>
             <th colspan="3">
-                专家组一览表
+                专家科室
             </th>
         </tr>
         <tr>
@@ -163,7 +163,7 @@
     <table border="1" width="100%" class="bgtable">
         <tr>
             <th colspan="3">
-                普通组一览表
+                普通科室
             </th>
         </tr>
         <tr>

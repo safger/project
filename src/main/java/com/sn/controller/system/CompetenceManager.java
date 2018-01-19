@@ -87,8 +87,9 @@ public class CompetenceManager extends HttpServlet {
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-		
+		}
+		this.sendNews(servlet);
+
 		this.DataRoleMenu(servlet);
 		this.DataScope(servlet);
 		this.Datadictionary(servlet);
@@ -108,41 +109,42 @@ public class CompetenceManager extends HttpServlet {
 		}
 		Calendar cal = Calendar.getInstance();
 		// 每天定点执行
-		cal.set(Calendar.HOUR_OF_DAY, 7);
+		cal.set(Calendar.HOUR_OF_DAY, 10);
 		cal.set(Calendar.MINUTE, 0);
 		cal.set(Calendar.SECOND, 0);
 
 		Timer timer = new Timer();
-		timer.schedule(new TimerTask() {
-			public void run() {
-				class MyThread extends Thread {
-					public void run() {
-						try {
-							if (gregService == null) {
-								gregService = (GregService) context.getBean("gregService");
-							}
-							SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-							Greg g = new Greg();
-							g.setServiceDay(sdf.parse(sdf.format(new Date())));
-							List<Greg> g_list = gregService.selectByColum(g, null);
-							if (g_list != null) {
-								for (Greg greg : g_list) {
-									if (greg.getWeixinid() != null && greg.getWeixinid().length() > 0) {
-										WeixinAction.sendMbMember(greg.getWeixinid(), greg);
-									}
+		timer.schedule(new weixinTime(), cal.getTime(),24 * 60 * 60 * 1000);
+	}
+
+	public class weixinTime extends TimerTask {
+		@Override
+		public void run() {
+					try {
+						Calendar c = Calendar.getInstance();
+						if(c.get(Calendar.HOUR_OF_DAY)!=7){
+							return;
+						}
+						if (gregService == null) {
+							gregService = (GregService) context.getBean("gregService");
+						}
+						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+						Greg g = new Greg();
+						g.setServiceDay(sdf.parse(sdf.format(new Date())));
+						g.setStatus("1");
+						List<Greg> g_list = gregService.selectByColum(g, null);
+						if (g_list != null) {
+							for (Greg greg : g_list) {
+								if (greg.getWeixinid() != null && greg.getWeixinid().length() > 0) {
+									WeixinAction.sendJzmb(greg.getWeixinid(), greg);
 								}
 							}
-						} catch (ParseException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
 						}
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				}
-				MyThread myThread = new MyThread();
-				Thread t1 = new Thread(myThread);
-				t1.start();
-			}
-		}, cal.getTime(), 24 * 60 * 60 * 1000);
+		}
 	}
 
 	public void DataScope(ServletContext servlet) {

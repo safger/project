@@ -764,7 +764,7 @@ select count(*) from MS_YYDA
   	 		   and    YYSJ  = #{yysj}  
   	  	</if>
   	  	<if test="ghbz != null" > 
-  	 		   and   ( GHBZ  = #{ghbz} or GHBZ is null   )
+  	 		   and   ( GHBZ  = 0 or GHBZ=1  or GHBZ is null   )
   	  	</if>
   	  	<if test="djgh != null" >
   	 		   and    DJGH  = #{djgh}  

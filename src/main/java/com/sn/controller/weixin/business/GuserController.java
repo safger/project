@@ -749,7 +749,7 @@ public class GuserController {
 		m.setYsdm(greg.getDoctorcode());
 		m.setKsdm(greg.getDepartmentcode());
 		m.setGzrq(greg.getServiceDay()); 
-		m.setGhbz(1); 
+		m.setGhbz(1);
 		int a=msYydaService.countByColum(m); 
 		if(a>0){
 			//预约排序-------------------------- 
